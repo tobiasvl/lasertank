@@ -1,0 +1,45 @@
+================================================
+Instruction for compilling the LaserTank Project
+  ( it takes less than 3 minutes, so do it )
+================================================
+
+1) Unzip the project in 
+    D:\LaserTank
+
+2) Download the last version of LccWin32 from Internet 
+    and install it in the default directory :
+    C:\Lcc
+
+3) Launch the lcc Editor :
+    C:\lcc\bin\wedit.exe
+
+4) Import the LaserTank Project, menu :    
+    Project / Import
+    and chose the 
+    D:\LaserTank\Ltank.prj
+
+5)  Clic on the menu :
+    Compiler / Rebuild all
+
+6)  Clic on the menu :
+    Compiler / Settings
+    and uncheck the "Generate debug info"
+    clic the OK button
+    
+7)  Clic on the menu :
+    Compiler / Make
+    
+8)  Quit Wedit, the LaserTank file is ready in :
+    D:\LaserTank\Setups\Files\lasertank4xx.exe
+
+9)  Launch the batch :
+    D:\LaserTank\Setups\Setup Generator\_Launch_Setupgen.bat
+    
+    
+10) In SetupGenerator, Choose the "Projet actuel" to "Lasertank 4.x.x"
+    Clic on the "Creation" Button
+    The Setup Kit is ready in
+    D:\LaserTank\Setups\LT4_Setup.exe
+
+
+    Yves Maingoy - 27 Jul 2005

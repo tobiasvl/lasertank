@@ -1,0 +1,514 @@
+##### LTank32 Language File 4.0 ###########
+#                                         #
+# Language : French  (100% Complet)       #
+# Author   : Yves Maingoy & Donald Drouin #
+# Date     : 10 July 2002                 #
+#                                         #
+###########################################
+
+##### IMPORTANT NOTE TO THE TRANSLATORS #################
+#                                                       #
+# You have to translate all the lines except those      #
+# beginning with a pound sign. ( # )                    #
+#                                                       #
+# No lines must be removed or added.                    #                  
+#                                                       #
+# All lines must stay at their original position.       #                  
+#                                                       #
+# In some cases changing the length of a message can    #
+# produce strange results. You will have to make tests. #
+#                                                       #
+#########################################################
+
+##### MAIN MENU ##########################
+00,--,--,&Jeu
+00,00,--,&Nouvelle partie\tF2
+00,01,--,Charger un tableau ( &Load )\tL
+00,02,--,Tableau &suivant\tS
+00,03,--,Tableau &précédent\tP
+00,04,--,&Dernier tableau joué\t<---
+00,05,--,SEPARATOR
+00,06,--,&Ouvrir une banque de tableau...\tO
+00,07,--,SEPARATOR
+00,08,--,&Voir vos records\tV
+00,09,--,Liste des records &globaux\tG
+00,10,--,SEPARATOR
+00,11,--,En&registrer les séquences de jeu\tF5
+00,12,--,S&auvegarder l'enregistrement\tF6
+00,13,--,&Continuer l'enregistrement\tF8
+00,14,--,Visionner une séquence de &jeu\tF7
+00,15,--,SEPARATOR
+00,16,--,&Imprimer le tableau
+00,17,--,SEPARATOR
+00,18,--,&Quitter\tAlt+F4
+01,--,--,&Mouvement
+01,00,--,&Recommencer le tableau\tR
+01,01,--,Annuler le dernier pas ou tir ( &Undo )\tU
+01,02,--,&Sauvegarder la position\tCtrl+C
+01,03,--,Restaurer la &position\tCrtl+V
+01,04,--,Rejouer &votre séquence\tF4
+02,--,--,&Options
+02,00,--,&Animation\tA
+02,01,--,So&n\tN
+02,02,--,Mémoriser le dernier tableau joué
+02,03,--,Sauter les tableaux complétés
+02,04,--,Auto-enregistrement
+02,05,--,Désactiver les avertissements
+02,06,--,SEPARATOR
+02,07,--,&Dimension
+02,07,00,&Petit
+02,07,01,&Moyen
+02,07,02,&Grand
+02,08,--,&Changer la difficulté...\tD
+02,09,--,Changer les &graphiques...\tCtrl+G
+03,--,--,&Éditeur [F9]
+04,--,--,&Aide
+04,00,--,Indice  ( &Hint )\tH
+04,01,--,SEPARATOR
+04,02,--,&Index
+04,03,--,&Aide rapide\tF1
+04,04,--,His&torique
+04,05,--,SEPARATOR
+04,06,--,À &propos de LaserTank
+
+##### EDITOR MENU ######################
+00,--,--,&Éditeur
+00,00,--,Vider le tableau        ( &Clear )\tCtrl+C
+00,01,--,Charger un tableau  ( &Load )\tCtrl+L
+00,02,--,&Sauvegarder le tableau\tCtrl+S
+00,03,--,&Enregistrer sous...
+00,04,--,&Quitter\tAlt+F4
+01,--,--,&Indice
+02,--,--,&Centrage
+02,00,--,&Droite\tCtrl+Flèche
+02,01,--,&Gauche\t    ''      ''
+02,02,--,&Haut\t    ''      ''
+02,03,--,&Bas\t    ''      ''
+03,--,--,&Fermer l'éditeur [F9]
+04,--,--,&Difficulté
+04,00,--,&Enfants
+04,01,--,&Facile
+04,02,--,&Médium
+04,03,--,&Difficile
+04,04,--,M&ortel
+05,--,--,&Aide
+05,00,--,&Éditeur\tF1
+05,01,--,&Créer vos propres tableaux
+05,02,--,SEPARATOR
+05,03,--,À &propos de LaserTank
+
+##### MAIN BUTONS  ( 9 lines) #########
+Annuler
+Sauver la position
+Restaurer la position
+Nouveau
+Précédent
+Suivant
+Indice
+Début
+Charger un tableau
+
+##### MESSAGES  ( 44 lines ) ###########
+#The Level file can not be found\nPlease select a new one
+La banque de tableau est introuvable\nS.V.P. Choisissez en une autre
+
+#Level Files (*.LVL)
+Banque de tableau (*.LVL)
+
+#Pick LaserTank Level File
+Choisissez une banque de tableau LaserTank     
+
+#Playback Files (*.LPB)
+Séquences de jeu (*.LPB)
+
+#Save Playback File
+Sauvegarder une séquence de jeu      
+
+#LaserTank Error
+Erreur LaserTank
+
+#Old High Score > M:
+Ancien  record > P:
+
+#M: 
+P: 
+
+# S: 
+ T: 
+
+# I: 
+ I: 
+
+#Congratulation's You beat it !!
+Bravo, Vous l'avez battu !!
+
+#Playback Level : 
+Rejouer la séquence : 
+
+#\nRecorded by 
+\nEnregistré par 
+
+#\nCan Not be found in the current level file\n< 
+\nNe se trouve pas dans cette banque de tableau\n< 
+
+#Do You want to Continue Recording ?
+Voulez vous continuez l'enregistrement ?
+
+#&Play
+&Jouer
+
+#&Pause
+&Pause
+
+#Out of Memory - Undo Roll Over
+Mémoire insufisante - trop de Undo
+
+#Open Playback file
+Charger une séquence de jeu
+
+#LaserTank Hint
+Indice LaserTank
+
+#Level NOT Saved, Save Data ?
+Voulez vous sauver le tableau avant ?
+
+# - Kids
+ - Enfants
+
+# - Easy
+ - Facile
+
+# - Medium
+ - Médium
+
+# - Hard
+ - Difficile
+
+# - Deadly
+ - Mortel
+
+# - [Editor]
+ - [Editeur]
+
+#LaserTank Editor
+Éditeur LaserTank
+
+#NOT a Valid LaserTank Graphics Set
+Ce n'est pas un fichier graphique valide
+
+#game.bmp and/or mask.bmp Not Found
+Ne trouve pas game.bmp et/ou mask.bmp
+
+#Open Playback file for Resume
+Ouvrir une séquence pour continuer l'enregistrement
+
+#Return to Game
+Retourner au jeu
+
+#< NO HINT SUBMITTED FOR THIS LEVEL >
+< AUCUN INDICE DE SOUMIS POUR CE TABLEAU >
+
+#LaserTank Level #
+Tableau laserTank #
+
+#Select LaserTank Graphics Directory
+Choisissez le répertoire de vos graphiques
+
+#Game in Progress ...
+Jeu en cours ...
+
+#You will lose game data.\nDo you want to save the game ?
+Vous perdrez tous vos déplacements.\nVoulez vous sauver votre séquence ?
+
+#Beat
+Battu
+
+#All
+Tous
+
+#Completed %d of %d levels
+Vous avez complété %d des %d tableaux
+
+#Difficulty Set = 
+Niveau de difficulté = 
+
+#KEMHD  (means: Kids, Easy, Medium, Hard, Deadly)
+EFMDM
+
+#LaserTank Graphics file Not Found !
+Fichier graphique non trouvé !
+
+# LaserTank *** RECORDING ***
+LaserTank === ENREGISTREMENT ACTIVÉ ===
+
+
+##### HELP SECTIONS : ( 4 lines) ########
+#Editor Instructions
+#Revisions
+#Writing Your Own Levels
+#LaserTank.hlp
+#####
+Instructions d'édition
+Historique
+Créez vos propres tableaux
+Language\LaserTankfr.hlp
+
+##### ABOUTBOX DIALOG : ( 4 lines) ########
+#About LaserTank
+#&Ok
+#By Jim Kindley
+#Version
+#####
+A propos de LaserTank
+&Ok
+Par Jim Kindley
+Version
+
+
+##### DEADBOX DIALOG :  ( 3 lines) ########
+#&Undo Last Move
+#YOU ARE DEAD ! ! !
+#&ReStart
+#####
+Ann&uler l'action
+VOUS ÊTES MORT !
+&Recommencer
+
+##### DIFFBOX DIALOG :  ( 9 lines) ########
+#Game Difficulty
+#&Ok
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#&All
+#Select
+#####
+Changer la difficulté
+&Ok
+&Enfants
+&Facile
+&Médium
+&Difficile
+Mo&rtel
+&Tous
+Choisissez :
+
+##### GRAPHBOX DIALOG :  ( 9 lines) ######
+#Select Graphics Set
+#Select One
+#&Internal Graphics
+#&User Graphics 
+#&Close
+#Author :
+#Laser Tank Graphic Set Description
+#&View Opening Screen 
+#Change &Directory
+#####
+Choisissez votre fichier graphique
+Votre choix :
+&Graphiques internes
+Graphiques des &BMP
+&Fermer
+Auteur :
+Description de ce fichier graphique :
+&Voir l'écran d'ouverture
+&Répertoire...
+
+
+##### LOADLEV DIALOG :  ( 7 lines) ######
+#Pick Level to Load
+#&Cancel
+#&Filter
+#File:
+#- File Loading Error -
+#Lev#   Name                           Author
+#or Direct Level Number Entry >>
+#####      
+Choisissez le tableau que vous désirez jouer
+&Annuler
+&Filtre
+Fichier:
+- File Loading Error -
+ No#   Nom du tableau                 Auteur
+Ou entrez le numéro du tableau désiré->
+
+#### HINTBOX DIALOG :  ( 3 lines) ######
+#Modify Hint
+#&Ok
+#&Cancel
+#####
+Modifier l'indice
+&Ok
+&Annuler
+
+#### SEARCH DIALOG :   ( 14 lines) ######
+#Filter Level Data
+#Enter Search String :
+#Search By
+#&Title
+#&Author
+#&Cancel
+#&Ok
+#&Only Unsolved Levels
+#&Filter by Difficulty
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#####
+Filtrage des tableaux
+Texte à rechercher :
+Chercher par
+&Tableau
+&Auteur
+&Annuler
+&Ok
+&Seulement les tableaux non résolus
+&Filtrer par difficulté
+&Enfants
+&Facile
+&Médium
+&Difficile
+&Mortel
+
+#### RETBOX DIALOG :   ( 1 line) ##########
+#&Return to Game
+#####
+&Retourner au jeu
+
+#### WINBOX DIALOG :   ( 4 lines) #########
+#&Ok
+#You Won ! ! !
+#File :
+#- Error -
+#####
+&Ok
+BRAVO ! ! !
+Fichier :
+- Erreur -
+
+#### LOADTID DIALOG :   ( 3 lines) ########
+#Pick Tunnel ID #
+#&Ok
+#Enter the ID Number for this Tunnel
+#####
+Choisir l'identité d'un tunnel
+&Ok
+Choisissez un numéro pour ce tunnel
+
+#### HIGHBOX DIALOG :   ( 9 lines) ########
+#! New High Score !
+#&Ok
+#Level Number :
+#Level Name :
+#Moves :
+#Shots :
+#Initials :
+#Global HS :
+#- No Data -
+#####
+! Nouveau Record !
+&Ok
+Tableau # :
+Nom :
+Pas :
+Tirs :
+Initiales :
+Global HS :
+- No Data -
+
+#### HIGHLIST DIALOG :   ( 4 lines) #######
+#High Scores
+#&Ok
+#- File Loading Error -
+#Lev#  Name                          Moves  Shots  Initials
+#####
+Vos Records
+&Ok
+- File Loading Error -
+  No# Nom du tableau                  Pas   Tirs Initiales
+
+#### GHIGHLIST DIALOG :   ( 7 lines) #######
+#Global High Scores
+#&Ok
+#Lev#  Name                             M      S   Init   M     S  Init
+#Global
+#Local
+#- No Data -
+#&Beat
+#####
+Les records globaux
+&Ok
+ No# Nom du Tableau                   Pas  Tirs  Init.  Pas   Tirs Init.
+Globaux
+Locaux
+- Pas de données -
+&Battu
+
+#### RECBOX DIALOG :   ( 3 lines) #######
+#Recording Game
+#Please Enter Your Name
+#&Ok
+#####
+Enregistrement de séquence
+S.V.P. Entrez votre nom
+&Ok
+
+#### PLAYBOX DIALOG :   ( 10 lines) ######
+#Playback Game
+#&Close
+#&Play
+#&Reset
+#&Fast
+#&Slow
+#S&tep
+#Step :
+#of
+#Speed
+#####
+Voir la séquence
+&Fermer
+&Jouer
+&Début
+&Vite
+&Lent
+P&ar pas
+Étape :
+de
+Vitesse :
+
+#### PICKLEVEL DIALOG :   ( 6 lines) ######
+#Save LaserTank Level
+#&Ok
+#Enter the Level Number to
+#Save :
+#= Add
+#&Clear High Score
+######
+Sauvegarder un tableau LaserTank
+&Ok
+Entrez le numéro du tableau
+à sauver
+= Ajout
+&Effacer votre record
+
+
+##### ABOUTBOX MESSAGE : (14 lines Max, 300 bytes each max) ###
+     LaserTank est un Coopériciel et vous pouvez l'utiliser gratuitement.\n\n
+     Lorsque vous deviendrez un joueur expérimenté, peut-être voudrez-vous créer un ou plusieurs tableaux, en utilisant l'éditeur de tableau et nous les faire parvenir ainsi que vos fichiers d'enregistrement (fichiers LPB).\n\n
+     Voir "Créer vos propres tableaux" et "Enregistrement et visionnement d'une séquence de jeu" dans le fichier d'aide.\n\n
+     De temps en temps, nous mettrons à jour le logiciel et ajouterons tous les bons tableaux qui nous seront envoyés.\n\n
+     (S.V.P. soyez inventif et essayez de ne pas reproduire ce qui existe déjà)\n
+     (Il y a déjà tant de tableaux disponibles sur le site web de Lasertank.)\n\n
+     Si vous battez un des records globaux, assurez-vous d'avoir la plus récente liste des records globaux (.GHS), puis envoyez-moi un fichier compressé (.ZIP) du ou des fichiers de séquence de jeu (.LPB) correspondant aux tableaux battus, ainsi que votre fichier Lasertank.hs.\n\n
+     Vous pouvez m'expédier ce fichier par courrier électronique à :\n
+        lasertank@globetrotter.net\n\n
+     Pour plus de tableaux, de fichiers graphiques et la plus récente liste des records globaux, visitez le site WEB de LaserTank à :\n
+        http://pages.globetrotter.net/lasertank\n\n
+     Pour de l'aide ou de l'information, joignez ou visitez le groupe Yahoo à :\n
+        http://fr.groups.yahoo.com/group/Lasertank-fr/\n\n
+     =========================\n     Adaptation française :\n     Donald Drouin et Yves Maingoy\n    =========================\n
+################ END ######################

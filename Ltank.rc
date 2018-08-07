@@ -3,16 +3,21 @@
  **               By Jim Kindley                      **
  **               (c) 2002                            **
  **         The Program and Source is Public Domain   **
+ *******************************************************
+ **       Release version 2005 by Yves Maingoy        **
+ **               ymaingoy@free.fr                    **
  *******************************************************/
 
-/* LaserTank Ver 4.0 (32Bit) Resource File */
+/* LaserTank Ver 4.1 (32Bit) Resource File */
 
 #include <windows.h>
+#include "lt32l_us.h"
 
-CONTROLBM BITMAP "control.bmp"
-OPENING BITMAP "opening.bmp"
-GAMEBM BITMAP "Game.bmp"
-MASKBM BITMAP "mask.bmp"
+
+CONTROLBM BITMAP  CONTROL_BMP
+OPENING BITMAP    OPENING_BMP
+GAMEBM BITMAP     GAME_BMP
+MASKBM BITMAP     MASK_BMP
 
 // Load sounds as RCData type
 
@@ -48,7 +53,7 @@ PUSH3 RCDATA "sounds\\Push3.wav"
 
 SINK RCDATA "sounds\\Sink.wav"
 
-// Import Menus, Accelerators & Dialogs from Lanquage file
+// Import Menus, Accelerators & Dialogs from Language file
 
 #include "lt32l_us.inc"
 
@@ -58,8 +63,8 @@ icon1 	ICON 	"ltank.ico"
 jek 	ICON	"jek.ico"
 
 1 VERSIONINFO
-FILEVERSION 4, 0, 0, 0
-PRODUCTVERSION 4, 0, 0, 0
+FILEVERSION 4, 1, 2, 0
+PRODUCTVERSION 4, 1, 2, 0
 FILEOS 0x4004L
 FILETYPE 0x01L
 BEGIN
@@ -69,11 +74,11 @@ BEGIN
 		BEGIN
 			VALUE "CompanyName", "JEK Software\000\000"
 			VALUE "FileDescription", "Laser Tank Logic Game\000"
-			VALUE "FileVersion", "4.0.6\000"
+			VALUE "FileVersion", FILE_VERSION
 			VALUE "InternalName", "ltank32\000"
 			VALUE "LegalCopyright", "Copyright © JEK Software 2002\000"
 			VALUE "OriginalFilename", "LaserTank.EXE\000"
-			VALUE "ProductVersion", "4.0.6 - 06/13/02\000"
+			VALUE "ProductVersion", PRODUCT_VERSION
 		END
 	END
 END

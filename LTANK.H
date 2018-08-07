@@ -3,6 +3,9 @@
  **               By Jim Kindley                      **
  **               (c) 2001                            **
  **         The Program and Source is Public Domain   **
+ *******************************************************
+ **       Release version 2002 by Yves Maingoy        **
+ **               ymaingoy@free.fr                    **
  *******************************************************/
 
  #include <windows.h>
@@ -78,11 +81,14 @@ Obj			BitM	Description
 #include "lt32l_us.h"
 
 // Game Defaults
-#define HelpFileName	"LaserTank.hlp"
 #define LevelData       "LaserTank.lvl"    // Default Level Data File
 #define INIFileName     "LaserTank.ini"
+// MAX text size for a lang_text
+#define MAX_LANG_SIZE    300
 
-#define MaxObjects	    26              // Maxamum number of game objects used
+
+
+#define MaxObjects	    26              // Maximum number of game objects used
 #define MaxBitMaps      58             	// the maximum number of BitMaps ( + 1 )
 #define XOffset         17             	// Game Board Offset from Left
 #define YOffset         17             	// Game Board Offset from top
@@ -202,8 +208,17 @@ typedef struct tIceRec	// Record used for sliding on the Ice
 
 }TICEREC;
 
-// Extern's -- Complete Program Defined Global Variables
+/// ------------ MGY -----------
+#define MAX_TICEMEM 16
+typedef struct tIceMem	// Record used for sliding objects on the Ice
+{
+	TICEREC Objects[MAX_TICEMEM];  // MGY - mem up 16 sliding objects
+	int count;          // number of current sliding objects
+}TICEMEM;
+extern TICEMEM SlideMem;
+/// ------------ MGY -----------
 
+// Extern's -- Complete Program Defined Global Variables
 extern HINSTANCE hInst;					// Globally Defined Instance
 extern char *RecBuffer;
 extern int GFXOn, Game_On, Sound_On, Ani_On, RLL, ConvMoving, CurLevel,TankDirty, DWarn;
@@ -233,6 +248,12 @@ extern HANDLE F1,F2,F3;					// File Handles
 extern DWORD BytesMoved;				// use in ReadFile & WriteFile
 extern int GraphM, FindTank;
 extern TICEREC SlideO,SlideT;
+
+// Variables for Language
+extern char LANGText[SIZE_ALL][MAX_LANG_SIZE]; // All lines of Language.dat
+extern char LANGFile[MAX_PATH];                // the dynamic file name for Language.dat
+extern TCHAR szFilterOFN[MAX_PATH];
+extern TCHAR szFilterPBfn[MAX_PATH];
 
 // Global Function Prototypes
 
@@ -274,10 +295,22 @@ void IceMoveT();					// Move an tank on the Ice
 void IceMoveO();					// Move an Object on the Ice
 void AddKBuff(char);
 
+// Function Prototypes for Language
+void ChangeMenuText(HMENU, char*);
+void InitLanguage(HMENU, HMENU);
+void ConvertTabChar(char*);
+HBITMAP LoadImageFile(HINSTANCE, char *, char*);
+void LoadWindowText(HWND, int);
+void LoadWindowCaption(HWND, int);
+
 
 /* Lets try some Macros */
 #define GetTunnelID(x,y) ((Game.PF[x][y] & 0x0F)  >> 1)			// 0 - 7
-#define GetTunnelOldID(x,y) ((Game.PF[x][y] & 0x3F)  >> 1)		// 0 - 32
+
+// mgy 18-05-2003 Tunnel is limited to 0-7.
+#define GetTunnelOldID(x,y) ((Game.PF[x][y] & 0x0F)  >> 1)			// 0 - 7
+//#define GetTunnelOldID(x,y) ((Game.PF[x][y] & 0x3F)  >> 1)		// 0 - 32
+
 #define ISTunnel(x,y) ((Game.PF[x][y] & Obj_Tunnel) == Obj_Tunnel)
 #define GameInProg Game.RecP && (Game.PF[Game.Tank.X][Game.Tank.Y] != 2) && (!DWarn)
 

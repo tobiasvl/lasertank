@@ -3,6 +3,9 @@
  **               By Jim Kindley                      **
  **               (c) 2001                            **
  **         The Program and Source is Public Domain   **
+ *******************************************************
+ **       Release version 2002 by Yves Maingoy        **
+ **               ymaingoy@free.fr                    **
  *******************************************************/
 #include <windows.h>
 #include <string.h>
@@ -27,19 +30,21 @@ HMENU EMenu,MMenu;
 char PrintJobName[100];
 char HelpFile[MAX_PATH];
 
+
 extern int Backspace[10];			// Backspace Buffer
 extern int BS_SP;					// StackPointer for Backspace
 extern int OKtoSave;
 
+
 OPENFILENAME OFN = {sizeof(OPENFILENAME),
 					0,
 					0,
-					txt002,
+					NULL,
 					NULL,
 					0,
 					1,
 					FileName,
-					80,
+					MAX_PATH,
 					NULL,
 					0,
 					NULL,
@@ -52,12 +57,12 @@ OPENFILENAME OFN = {sizeof(OPENFILENAME),
 OPENFILENAME PBfn = {sizeof(OPENFILENAME),
 					0,
 					0,
-					txt005,
+					NULL,
 					NULL,
 					0,
 					1,
 					PBFileName,
-					80,
+					MAX_PATH,
 					NULL,
 					0,
 					NULL,
@@ -461,7 +466,7 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 		JK3dFrame(pdc,ContXPos-1,1,ContXPos+181,Box.bottom-2,TRUE);
 		if (!EditorOn) JK3dFrame(pdc,ContXPos+10,250,ContXPos+165,405,FALSE);
 		tDC = CreateCompatibleDC(pdc);
-		OpenScreen = LoadBitmap(hInst,"CONTROLBM");
+		OpenScreen = LoadImageFile(hInst,"CONTROLBM",CONTROL_BMP);
 		tBM = SelectObject(tDC,OpenScreen);
 		// put up control bitmap }
 		BitBlt (pdc,ContXPos,2,180,245,tDC,0,0,SRCCOPY);
@@ -473,7 +478,7 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 		if ((CurLevel == 0) || QHELP )
 		{
 			// come here in the beggining before a level is loaded
-			OpenScreen = LoadBitmap(hInst,"OPENING");
+			OpenScreen = LoadImageFile(hInst,"OPENING", OPENING_BMP);
 			tBM = SelectObject(tDC,OpenScreen);
 			StretchBlt (gDC,XOffset,YOffset,SpBm_Width*16,SpBm_Height*16,tDC,0,0,384,384,SRCCOPY);
 			SelectObject (tDC,tBM);
@@ -491,7 +496,8 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 					x = XOffset+3; y += (SpBm_Height*2); j = 1;
   			   	}
 			}
-			TextOut(pdc,(SpBm_Width*13),(SpBm_Height*16),App_Version,strlen(App_Version));
+			// desactive  2004/05/09 - mgy
+			// TextOut(pdc,(SpBm_Width*13),(SpBm_Height*16),App_Version,strlen(App_Version));
 		}
 		else {
 			// Lable Game Grid
@@ -500,8 +506,23 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			for (i=1; i<17; i++)
 			{
 				TextOut(pdc,8,YOffset+y+((i-1) * SpBm_Height),itoa(i,temps,10),strlen(temps));
+				if ( i<10 )
+				{
+					TextOut(pdc,8+XOffset+(16*SpBm_Width) ,YOffset+y+((i-1) * SpBm_Height),itoa(i,temps,10),strlen(temps));
+				}
+				else
+				{
+					strcpy(temps, "1 ");
+					TextOut(pdc,-1+8+XOffset+(16*SpBm_Width) ,YOffset+y+((i-1) * SpBm_Height),temps, strlen(temps));
+					itoa(i-10,temps,10);
+					TextOut(pdc,3+8+XOffset+(16*SpBm_Width) ,YOffset+y+((i-1) * SpBm_Height),temps,strlen(temps));
+				}
+
+
 				strcpy(temps,"@"); temps[0] = temps[0] + i;
 				TextOut(pdc,XOffset+x+((i-1) * SpBm_Width),1,temps,strlen(temps));
+				TextOut(pdc,XOffset+x+((i-1) * SpBm_Width),YOffset+1+(16 * SpBm_Height),temps,strlen(temps));
+
 			}
 			PutLevel();
 			if (EditorOn)
@@ -567,7 +588,8 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			}
 		if (Ani_On) AniCount++;
 		if (AniCount == ani_delay) Animate(); 	// Do Animation
-		if (Game.Tank.Firing) MoveLaser();   	// Move laser if one was fired
+		if (Game.Tank.Firing)
+			MoveLaser();   	// Move laser if one was fired
 
 		if (PBOpen)
 		{
@@ -582,12 +604,13 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 				PBHold = FALSE;
 				itoa(Game.RecP,temps,10);
 				SendMessage(PBCountH,WM_SETTEXT,0,(long)(temps));
-				if (Speed == 3) SendMessage(PlayH,WM_COMMAND,108,0);
+				if (Speed == 3) SendMessage(PlayH,WM_COMMAND,ID_PLAYBOX_02,0);
 			}
 			else PBHold = TRUE;
 		}
 		// Check Key Press }
-		if ((Game.RecP < RB_TOS) &&
+
+		if ((Game.RecP < RB_TOS) && // (speedBug) &&
 			(!(Game.Tank.Firing || ConvMoving || SlideO.s || SlideT.s || PBHold)))
 		{
 			switch (RecBuffer[Game.RecP])
@@ -650,8 +673,9 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			break;
 		case 18:
 			if (CheckLoc(Game.Tank.X-1,Game.Tank.Y))
-				ConvMoveTank(-1,0,TRUE);
+			ConvMoveTank(-1,0,TRUE);
 		}
+
 		// Check the mouse Buffer
 		if ((Game.RecP == RB_TOS) && (MB_TOS != MB_SP) &&
 			(!(Game.Tank.Firing || ConvMoving || SlideO.s || SlideT.s)))
@@ -671,14 +695,15 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 	case WM_GameOver:
 		DialogBox(hInst, "WinBox", Window, (DLGPROC)WinBox);
 		return(0);
+
 	case WM_NewHS:
 		DialogBox(hInst, "HighBox", Window, (DLGPROC)HSBox);
 		return(0);
 	case WM_SaveRec:
 		if (PBSRec.Author[0] == (char)0)
 			DialogBox(hInst, "RecBox", Window, (DLGPROC)RecordBox);
-	    PBfn.lpstrTitle = txt006;
-        PBfn.Flags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT;
+     	PBfn.lpstrTitle = txt006;
+    	PBfn.Flags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT;
 		strcpy(PBSRec.LName,CurRecData.LName);
 		BuildPB_Name();
 		if (GetSaveFileName(&PBfn))
@@ -697,14 +722,15 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			return(0);
 		}
 		SoundPlay(S_Die);
-		i = DialogBox(hInst, "DeadBox", Window, (DLGPROC)DefBox);
+		i = DialogBox(hInst, "DeadBox", Window, (DLGPROC)DeadBox);
 		switch (i)
 		{
-		case 1:
+		case ID_DEADBOX_UNDO:
 			SendMessage(Window,WM_COMMAND,110,0);
 			GameOn(TRUE);
 			break;
-		case 2:
+		case ID_DEADBOX_RESTART:
+		case 2: // Cancel
 			UndoStep();		// We have to undo the error first ( incase we Restart Undo)
 			PostMessage(Window,WM_COMMAND,105,0);
 		}
@@ -723,7 +749,7 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 		KillBuffers();
 		DeleteObject(LaserColorR);
 		DeleteObject(LaserColorG);
-		WinHelp(Window,"LTank.Hlp",HELP_QUIT,0);
+		WinHelp(Window,HelpFile,HELP_QUIT,0);
  		PostQuitMessage(0);
 		return(0);
 	case WM_MOVE:
@@ -871,6 +897,7 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 				Game.RecP = 0;
 				RB_TOS = 0;
 				SlideO.s = 0;						// stop any sliding
+				SlideMem.count = 0;					// MGY --- stop any sliding
 				SlideT.s = 0;
 				// Lets also init the Mouse Buffer
 				MB_TOS = MB_SP = 0;
@@ -943,7 +970,7 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			BuildPB_Name();
 			PBfn.lpstrTitle = txt020;
 			PBfn.Flags= OFN_HIDEREADONLY | OFN_FILEMUSTEXIST;
-            if (GetOpenFileName(&PBfn))
+      if (GetOpenFileName(&PBfn))
 			{
 				if (LoadPlayback())	DialogBox(hInst, "PlayBox", Window, (DLGPROC)PBWindow);
 			}
@@ -954,14 +981,14 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 				CheckMenuItem(MMenu,115,0);
 				ARecord = FALSE;
 				WritePrivateProfileString("OPT",psARec,"No",INIFile);
-	            if (GetMenuState(MMenu,123,0) & MF_CHECKED)
+	      if (GetMenuState(MMenu,123,0) & MF_CHECKED)
 					PostMessage(Window,WM_COMMAND,123,0); 	// Record Off
 			}
 			else {
 				CheckMenuItem(MMenu,115,MF_CHECKED);
 				ARecord = TRUE;
 				WritePrivateProfileString("OPT",psARec,"Yes",INIFile);
-	            if (!(GetMenuState(MMenu,123,0) & MF_CHECKED) )
+	      if (!(GetMenuState(MMenu,123,0) & MF_CHECKED) )
 					PostMessage(Window,WM_COMMAND,123,0); 	// Record On
 				}
 			return(0);
@@ -1006,10 +1033,11 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			{
 				CheckMenuItem(MMenu,123,0);
 				Recording = FALSE;
-                EnableMenuItem(MMenu,117,MF_GRAYED);
+        EnableMenuItem(MMenu,117,MF_GRAYED);
 				SetWindowText(MainH,App_Title);
-        	}
-			else {
+      }
+			else
+			{
 				CheckMenuItem(MMenu,123,MF_CHECKED);
 				Recording = TRUE;
 				EnableMenuItem(MMenu,117,0 ); 				// enable Save Recording
@@ -1030,7 +1058,7 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 		case 125:					// Resume Recording
 			PBfn.lpstrTitle = txt033;
 			PBfn.Flags= OFN_HIDEREADONLY | OFN_FILEMUSTEXIST;
-            BuildPB_Name();
+      BuildPB_Name();
 			if (GetOpenFileName(&PBfn))
 			{
 				x = LoadPlayback();
@@ -1329,20 +1357,20 @@ LRESULT CALLBACK WndProc(HWND Window, UINT Message, WPARAM wparam, LPARAM lparam
 			WinHelp(Window,HelpFile,HELP_INDEX,0);
 			return(0);
 		case 903:
-			WinHelp(Window,HelpFile,HELP_KEY,(DWORD)&"Editor Instructions");
+			WinHelp(Window,HelpFile,HELP_KEY,(DWORD)&help01);
 			return(0);
 		case 904:
-			WinHelp(Window,HelpFile,HELP_KEY,(long)&"Revisions");
+			WinHelp(Window,HelpFile,HELP_KEY,(long)&help02);
 			return(0);
 		case 905:
-			WinHelp(Window,HelpFile,HELP_KEY,(long)&"Writing Your Own Levels");
+			WinHelp(Window,HelpFile,HELP_KEY,(long)&help03);
 			return(0);
 		case 907: 	 				// Quick About Box
 			x = Game_On;
 			GameOn(FALSE);
 			QHELP = TRUE;
 			InvalidateRect(Window,NULL,FALSE);
-			DialogBox(hInst, "RETBOX", Window, (DLGPROC)DefBox);
+			DialogBox(hInst, "RETBOX", Window, (DLGPROC)RetBox);
 			QHELP = FALSE;
 			InvalidateRect(Window,NULL,FALSE);
 			GameOn(x);
@@ -1378,7 +1406,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	hAccelTable1 = LoadAccelerators(hInst,"ACC1");
 	hAccelTable2 = LoadAccelerators(hInst,"ACC2");
 
-	// Create Full Help & INI file names
+	// Create Full INI file name
+	// Help file name is created in InitInstance()
 	GetModuleFileName (NULL,INIFile,MAX_PATH);
 	strcpy(HelpFile,INIFile);
 	P = strrchr(INIFile,'\\');
@@ -1389,12 +1418,13 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 		if (GetPrivateProfileInt("DATA",psNET,0,INIFile) == 1) strcpy(INIFile,INIFileName);
 	} else strcpy(INIFile,INIFileName);	// Error so put in Windows Directory
 
-	P = strrchr(HelpFile,'\\');
+	strcpy(LANGFile,INIFile);
+	P = strrchr(LANGFile,'\\');
 	if (P)
 	{
 		P++;
-		strcpy(P,HelpFileName);			// add name
-	} else strcpy(HelpFile,HelpFileName);	// Error so put in Default Directory
+		strcpy(P,LANGFileName);			// add name
+	} else strcpy(LANGFile,LANGFileName);	// Error so put in Default Directory
 
 	// Perform initializations that apply to a specific instance
 	if (!InitInstance(hInstance, nCmdShow)) return FALSE;
@@ -1454,6 +1484,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
 	HWND Window; // Main window handle.
 	int xp, yp;
+	// <LangFile>
+    TCHAR *p;
+    TCHAR buffer[50];
+	// </LangFile>
 
 	hInst = hInstance; // Store instance handle in our global variable
 	xp = GetPrivateProfileInt("SCREEN",psXpos,CW_USEDEFAULT,INIFile);
@@ -1468,6 +1502,42 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	OFN.hwndOwner = Window;
 	PBfn.hwndOwner = Window;
 	EMenu = LoadMenu(hInst,"MENU2");
+
+
+
+	// <LangFile>
+    InitLanguage(MMenu, EMenu );
+    // Buit HelpFile file name here, after InitLanguage()
+    p = strrchr(HelpFile,'\\');
+    if (p)
+    {
+    	p++;
+    	strcpy(p,HelpFileName);			// add name
+    } else strcpy(HelpFile,HelpFileName);	// Error so put in Default Directory
+
+    // Build up the correct filter strings for OPENFILENAME structure
+    p = szFilterOFN;
+    lstrcpy (buffer,txt002);
+    lstrcpy (p,buffer);
+    p += lstrlen (buffer) +1;
+    lstrcpy (buffer,TEXT("*.LVL"));
+    lstrcpy (p,buffer);
+    p += lstrlen (buffer) +1;
+    strcpy (p,TEXT("\0"));
+    OFN.lpstrFilter = szFilterOFN;
+
+    // Build up the correct filter strings for OPENFILENAME structure
+    p = szFilterPBfn;
+    lstrcpy (buffer,txt005);
+    lstrcpy (p,buffer);
+    p += lstrlen (buffer) +1;
+    lstrcpy (buffer,TEXT("*.LPB"));
+    lstrcpy (p,buffer);
+    p += lstrlen (buffer) +1;
+    strcpy (p,TEXT("\0"));
+    PBfn.lpstrFilter = szFilterPBfn;
+	// </LangFile>
+
 	// Title Edit Box - Visable only in Editor Mode
 	Ed1 = CreateWindow("EDIT","", WS_CHILD | WS_BORDER | ES_LEFT | ES_AUTOHSCROLL,
 		418,99,163,20,Window,(HMENU)501,hInst,NULL);

@@ -1,0 +1,482 @@
+##### LTank32 Language File 4.0 ###########
+#                                         #
+# Language : Dutch (95% complete)         #
+# Author   : Ron Meijer                   #
+# Date     : 10 July 2002 - v  1.0        #
+#                                         #
+###########################################
+
+##### IMPORTANT NOTE TO THE TRANSLATORS #################
+#                                                       #
+# You have to translate all the lines except those      #
+# beginning with a pound sign. ( # )                    #
+#                                                       #
+# No lines must be removed or added.                    #                  
+#                                                       #
+# All lines must stay at their original position.       #                  
+#                                                       #
+# In some cases changing the length of a message can    #
+# produce strange results. You will have to make tests. #
+#                                                       #
+#########################################################
+
+##### MAIN MENU ##########################
+00,--,--,&Spel
+00,00,--,&Nieuw\tF2
+00,01,--,Open Spe&l...\tL
+00,02,--,&Sla Spel over\tS
+00,03,--,S&pel Hiervoor\tP
+00,04,--,Laast Gespeel&de Spel\tBkSp
+00,05,--,SEPARATOR
+00,06,--,&Open Bestand...\tO
+00,07,--,SEPARATOR
+00,08,--,&Voor Jouw Hoogste Punten\tV
+00,09,--,&Gehele Wereld Punten\tG
+00,10,--,SEPARATOR
+00,11,--,&Record (Opname) Spel\tF5
+00,12,--,Bew&aar Recording\tF6
+00,13,--,Herstart Re&cording\tF8
+00,14,--,Play&back (Afspelen) Spel...\tF7
+00,15,--,SEPARATOR
+00,16,--,Uitpr&inten Spelveld
+00,17,--,SEPARATOR
+00,18,--,Afsluit&en
+01,--,--,&Zet
+01,00,--,He&rstart\tR
+01,01,--,Ter&ug Laatste Zet/Schot\tU
+01,02,--,&Sla Positie op\tCtrl+C
+01,03,--,Herstart &Positie\tCrtl+V
+01,04,--,Afspelen (RePla&y)\tF4
+02,--,--,&Mogelijkheden
+02,00,--,&Animatie\tA
+02,01,--,Gelui&den\tN
+02,02,--,&Registreer Laatste Spel
+02,03,--,Sla Voltoo&id Spel over
+02,04,--,Au&tomatisch Opnemen
+02,05,--,Zet &Waarschuwingen uit
+02,06,--,SEPARATOR
+02,07,--,Gr&ootte
+02,07,00,&Klein
+02,07,01,&Middel
+02,07,02,&Groot
+02,08,--,Verander Moeilijkhei&d...\tD
+02,09,--,Verander &Grafisch ...\tCtrl+G
+03,--,--,B&ewerker [F9]
+04,--,--,&Help
+04,00,--,&Hint\tH
+04,01,--,SEPARATOR
+04,02,--,&Index
+04,03,--,&Quick Hulp\tF1
+04,04,--,Ove&rzicht
+04,05,--,SEPARATOR
+04,06,--,&Alles van het Spel
+
+##### EDITOR MENU ######################
+00,--,--,B&ewerker
+00,00,--,Terrein S&choonmaken\tCtrl+C
+00,01,--,Spe&l Openen...\tCtrl+L
+00,02,--,&Spel Opslaan\tCtrl+S
+00,03,--,Opslaan &Als...
+00,04,--,Afsluit&en
+01,--,--,&Hint
+02,--,--,&Shift
+02,00,--,&Rechts\tCtrl+Richting
+02,01,--,&Links
+02,02,--,&Boven
+02,03,--,Bene&den
+03,--,--,&Sluit Bewerker [F9]
+04,--,--,Moeilijkhei&d
+04,00,--,&Kinderen
+04,01,--,&Eenvoudig
+04,02,--,&Middel
+04,03,--,&Heftig
+04,04,--,&Dodelijk
+05,--,--,&Help
+05,00,--,B&ewerker\tF1
+05,01,--,Spelletjes ont&werpen
+05,02,--,SEPARATOR
+05,03,--,&Alles van het Spel
+
+##### MAIN BUTONS  ( 9 lines) #########
+#Undo
+Undo
+#Save Position
+Positie Opslaan
+#Restore Position
+Herstel Positie
+#New
+Nieuw
+#<< Level
+<< Spel
+#Level >>
+Spel >>
+#Hint
+Hint
+#Restart
+Herstart
+#Load Level
+Open het Spel
+
+##### MESSAGES  ( 44 lines ) ###########
+#The Level file can not be found\nPlease select a new one
+The Level file can not be found\nPlease select a new one
+#Level Files (*.LVL)
+Spel Bestanden (*.LVL)
+#Pick LaserTank Level File
+Gebruik alleen LaserTank Level Bestanden
+#Playback Files (*.LPB)
+Playback Bestanden (*.LPB)
+#Save Playback File
+Save Playback File
+#LaserTank Error
+LaserTank Fout
+#Old High Score > M:
+Oude Hoogste Score > B:
+#M: 
+B: 
+# S: 
+ S: 
+# I: 
+ I: 
+#Congratulation's You beat it !!
+Gefeliciteerd Je hebt hem verslagen !!
+#Playback Level : 
+Playback Bestand : 
+#\nRecorded by 
+\nRecord Maker
+#\nCan Not be found in the current level file\n< 
+\nCan Not be found in the current level file\n< 
+#Do You want to Continue Recording ?
+Wil je blijven opnemen?
+#&Play
+&Speel
+#&Pause
+&Pauze
+#Out of Memory - Undo Roll Over
+Out of Memory - Undo Roll Over
+#Open Playback file
+Open Playback bestand
+#LaserTank Hint
+LaserTank Hint
+#Level NOT Saved, Save Data ?
+Spel NIET OPGESLAGEN, Bestand Opslaan ?
+# - Kids
+ - Kinderen
+# - Easy
+ - Eenvoudig
+# - Medium
+ - Middel
+# - Hard
+ - Heftig
+# - Deadly
+ - Dodelijk
+# - [Editor]
+ - [Bewerker]
+#LaserTank Editor
+LaserTank Bewerker
+#NOT a Valid LaserTank Graphics Set
+Kan niet gevonden worden in het huidige bestand
+#game.bmp and/or mask.bmp Not Found
+spel.bmp en/of masker.bmp Niet Gevonden
+#Open Playback file for Resume
+Open Afspeel bestand voor vervolg
+#Return to Game
+Te&rug naar het Spel
+#< NO HINT SUBMITTED FOR THIS LEVEL >
+< GEEN HINT VOOR DIT SPEL BIJGELEVERD >
+#LaserTank Level #
+LaserTank Spel #
+#Select LaserTank Graphics Directory
+Zoek LaserTank Grafisch Bestands-map
+#Game in Progress ...
+Spel Loopt ...
+#You will lose game data.\nDo you want to save the game ?
+Je verliest de Spel Gegevens.\nWil je het Spel Opslaan ?
+#Beat
+Beat
+#All
+Alles
+#Completed %d of %d levels
+Completed %d of %d levels
+#Difficulty Set = 
+Difficulty Set = 
+#KEMHD  (means: Kids, Easy, Medium, Hard, Deadly)
+KEMHD
+#LaserTank Graphics file Not Found !
+LaserTank Graphics file Not Found !
+# LaserTank *** RECORDING ***
+ LaserTank *** OPNAME ***
+
+
+##### HELP SECTIONS : ( 4 lines) ########
+#Editor Instructions
+#Revisions
+#Writing Your Own Levels
+#LaserTank.hlp
+#####
+Editor Instructions
+Revisions
+Writing Your Own Levels
+Language\LaserTankDu.hlp
+
+
+##### ABOUTBOX DIALOG : ( 4 lines) ########
+#About LaserTank
+#&Ok
+#By Jim Kindley
+#Version
+#####
+Over LaserTank
+&Ok
+By Jim Kindley
+Versie
+
+##### DEADBOX DIALOG :  ( 3 lines) ########
+#&Undo Last Move
+#YOU ARE DEAD ! ! !
+#&ReStart
+#####
+Ter&ug laatste zet
+JE BENT DOOD ! ! !
+Te&rug Begin
+
+##### DIFFBOX DIALOG :  ( 9 lines) ########
+#Game Difficulty
+#&Ok
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#&All
+#Select
+#####
+Spel Moeilijkheid
+&Ok
+&Kinderen
+&Eenvoudig
+&Middel
+&Heftig
+&Dodelijk
+&Alle
+Zoek uit
+
+##### GRAPHBOX DIALOG :  ( 9 lines) ######
+#Select Graphics Set
+#Select One
+#&Internal Graphics
+#&User Graphics 
+#&Close
+#Author :
+#LaserTank Graphic Set Description
+#&View Opening Screen 
+#Change &Directory
+#####
+Selecteer Grafisch Bestand
+Selecteer:
+&Bestaand Grafische
+&Eigen Grafische
+&Sluit
+Maker :
+LaserTank Grafische Achtergrond
+Bekijk &Openings Beeld
+&Verander Bestand
+
+##### LOADLEV DIALOG :  ( 7 lines) ######
+#Pick Level to Load
+#&Cancel
+#&Filter
+#File:
+#- File Loading Error -
+#Lev#   Name                           Author
+#or Direct Level Number Entry >>
+#####      
+Zoek Spel om te Openen
+&Herstel
+&Filter
+  Bestand:
+- Fout met het Openen -
+Spel   Naam                           Maker
+of Spel nummer intoetsen >>
+
+
+#### HINTBOX DIALOG :  ( 3 lines) ######
+#Modify Hint
+#&Ok
+#&Cancel
+#####
+Maak je Hint
+&Ok
+&Herstel
+
+
+#### SEARCH DIALOG :   ( 14 lines) ######
+#Filter Level Data
+#Enter Search String :
+#Search By
+#&Title
+#&Author
+#&Cancel
+#&Ok
+#&Only Unsolved Levels
+#&Filter by Difficulty
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#####
+Filter voor Spelletjes
+Vul Zoekopdracht in :
+Zoek Bij
+&Titel
+M&aker
+&Herstel
+&Ok
+Alleen &Onopgeloste
+&Filter moeilijkheid
+&Kinderen
+&Eenvoudig
+&Middel
+&Heftig
+&Dodelijk
+
+#### RETBOX DIALOG :   ( 1 line) ##########
+#&Return to Game
+#####
+Te&rug naar het Spel
+
+
+#### WINBOX DIALOG :   ( 4 lines) #########
+#&Ok
+#You Won ! ! !
+#File :
+#- Error -
+#####
+&Ok
+Je wint!
+Spel:
+- Fout -
+
+#### LOADTID DIALOG :   ( 3 lines) ########
+#Pick Tunnel ID #
+#&Ok
+#Enter the ID Number for this Tunnel
+#####
+Zoek Soort Tunnel #
+&Ok
+Toets Nummer voor deze Tunnel in
+
+
+
+#### HIGHBOX DIALOG :   ( 9 lines) ########
+#! New High Score !
+#&Ok
+#Level Number :
+#Level Name :
+#Moves :
+#Shots :
+#Initials :
+#Global HS :
+#- No Data -
+#####
+! Nieuwste Record !
+&Ok
+Spel Nummer :
+Spel Naam   :
+Zet:
+Schot:
+Initialen:
+Wereld Rec:
+- No Data -
+
+#### HIGHLIST DIALOG :   ( 4 lines) #######
+#High Scores
+#&Ok
+#- File Loading Error -
+#Lev#  Name                          Moves  Shots  Initials
+#####
+Hoogste Punten
+&Ok
+- Fout met Openen -
+Spel  Naam                        Beweging Schot Initialen
+
+#### GHIGHLIST DIALOG :   ( 7 lines) #######
+#Global High Scores
+#&Ok
+#Lev#  Name                             M      S   Init   M     S  Init
+#Global
+#Local
+#- No Data -
+#&Beat
+#####
+Wereld Record
+&Ok
+Spel  Naam                             B      S   Init   B     S  Init
+Wereld
+JIJ
+- geen Data -
+&Beste
+
+#### RECBOX DIALOG :   ( 3 lines) #######
+#Recording Game
+#Please Enter Your Name
+#&Ok
+#####
+Opname Spel
+Hier je naam invullen
+&Ok
+
+#### PLAYBOX DIALOG :   ( 10 lines) ######
+#Playback Game
+#&Close
+#&Play
+#&Reset
+#&Fast
+#&Slow
+#S&tep
+#Step :
+#of
+#Speed
+#####
+Spel Afspelen
+S&luit
+S&peel
+&Opnieuw
+&Snel
+&Rustig
+S&tap
+Stap :
+van
+Snelheid
+
+#### PICKLEVEL DIALOG :   ( 6 lines) ######
+#Save LaserTank Level
+#&Ok
+#Enter the Level Number to
+#Save :
+#= Add
+#&Clear High Score
+######
+Sla LaserTank Spel Op
+&Ok
+Toets het Spel-nummer in
+Als :
+= Add
+S&choonmaken punten
+
+##### ABOUTBOX MESSAGE : (14 lines Max, 300 bytes each max) ###
+     Laser Tank is HelpWare en je kunt het gratis gebruiken.\n\n
+     Nadat je een geoefend speler bent geworden, zou je misschien een of twee spelletjes (Levels) willen maken, met gebruikmaking van de Level Editor en ze dan naar ons toesturen met je playback (LPB files).\n\n
+     We zullen de software en alle goede spelletjes die toegezonden zijn zo nu en dan bijwerken ("updaten"). Zie:"je eigen spelletjes maken" en "opnemen & afspelen"in het help file.\n\n
+     (Wees alstjeblieft inventief en probeer niet datgene dat al bestaat te imiteren.)\n
+     (Er zijn al zo veel spelletjes te vinden op de LaserTank WEB site.)\n\n
+     Als U één van de High Scores verslagen heeft en U heeft het meest recente Wereld record, de Global High Score file, stuur me dan een zip met de playbacks van dit nummer en het LaserTank.hs bestand.\n\n
+     U kunt me de bestanden e-mailen naar:\n
+	      lasertank@globetrotter.net\n\n
+     Voor nieuwe levels, andere grafisch bewerkingen & de meest recente Global High Score file, kijk bij:\n
+     LaserTank WEB site:\n
+        http://www.jccontrols.net/laser\n
+     For Help or more info about this game join or check out the Yahoo Group at :\n
+        http://groups.yahoo.com/lasertank\n
+################ END ######################

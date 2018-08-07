@@ -1,12 +1,22 @@
-LaserTank is HelpWare.
-You can use LaserTank for free, but like all free things there is a catch. We want you to make a new level, using the Level Editor, and send it to us, with your playback (LPB file). We will update the software every now and then and add all the good levels that are sent. See  "Writing your own levels" and "Recording & Playback" in the help file.
+   LaserTank is HelpWare and you can use it for free.
 
-If you beat any of the High Scores, make sure you have the most recent Global High Score file, send a zip file with the playbacks for the levels you beat and your LaserTank.hs file.
+   After you became a skilled player, maybe you will want 
+to make one or more new levels, using the Level Editor, 
+and send them to us, with your playback (LPB files). 
+We will update the software every now and then and add all 
+the good levels that are sent. See  "Writing your own levels" 
+and "Recording & Playback" in the help file.
 
-You can e-mail the file's to: lasertank@globetrotter.net
+  (Please, be inventive and do try not to replicate what is already existing).
 
-For more levels, Graphics files, & the most recent Global High Score file check out the
-LaserTanks WEB site : http://www.jccontrols.net/laser
+  (There is already so many levels available on the LaserTank WEB site).
 
-For Help or more info about this game join or check out the Yahoo Group at :
+   If you beat any of the High Scores, make sure you have the most recent Global High Score file, send a zip file with the playbacks for the levels you beat and your LaserTank.hs file.
+
+   You can e-mail the file's to : lasertank@globetrotter.net
+
+   For more levels, Graphics files, & the most recent Global High Score file check out the LaserTanks WEB site : 
+   http://www.jccontrols.net/laser
+
+   For Help or more info about this game join or check out the Yahoo Group at :
    http://groups.yahoo.com/lasertank

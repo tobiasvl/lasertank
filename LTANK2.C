@@ -3,6 +3,9 @@
  **               By Jim Kindley                      **
  **               (c) 2001                            **
  **         The Program and Source is Public Domain   **
+ *******************************************************
+ **       Release version 2002 by Yves Maingoy        **
+ **               ymaingoy@free.fr                    **
  *******************************************************/
 
 #include <windows.h>
@@ -12,6 +15,7 @@
 #include <mmsystem.h>
 #include <stdio.h>
 #include "ltank.h"
+#include "ltank_d.h"
 #include "lt_sfx.h"
 
 // Declare the Global Varables
@@ -60,6 +64,7 @@ char FileName[MAX_PATH], HFileName[MAX_PATH], GHFileName[MAX_PATH];
 char PBFileName[MAX_PATH], GraphFN[MAX_PATH], GraphDN[MAX_PATH],INIFile[MAX_PATH];
 int Modified;
 TICEREC SlideO,SlideT;
+TICEMEM SlideMem; // MGY - mem up MAX_TICEMEM sliding objects
 int wasIce;				// CheckLoc will set this to true if Ice
 int WaitToTrans;
 
@@ -99,6 +104,124 @@ static void FindTarget( int, int, int);
 //
 // Start the code section
 //
+
+// ---------------------------------------------------
+// Move   a Sliding Object FROM stack
+// ---------------------------------------------------
+void Mem_to_SlideO( int iSlideObj ) // MGY
+{
+	if (iSlideObj <= SlideMem.count ) {
+	    SlideO.x  = SlideMem.Objects[iSlideObj].x;
+		SlideO.y  = SlideMem.Objects[iSlideObj].y;
+		SlideO.dx = SlideMem.Objects[iSlideObj].dx;
+		SlideO.dy = SlideMem.Objects[iSlideObj].dy;
+		SlideO.s  = SlideMem.Objects[iSlideObj].s;
+	}
+}
+
+// ---------------------------------------------------
+// Move a Sliding Object ON TO stack
+// Update SlideMem with an object SlideO
+// ---------------------------------------------------
+void SlideO_to_Mem( int iSlideObj ) // MGY
+{
+ 	if (iSlideObj <= SlideMem.count ) {
+	    SlideMem.Objects[iSlideObj].x  = SlideO.x ;
+		SlideMem.Objects[iSlideObj].y  = SlideO.y ;
+		SlideMem.Objects[iSlideObj].dx = SlideO.dx;
+		SlideMem.Objects[iSlideObj].dy = SlideO.dy;
+		SlideMem.Objects[iSlideObj].s  = SlideO.s ;
+	}
+}
+
+
+// ---------------------------------------------------
+// Add an object in the stack for slidings objects
+// But, if this object is already in this stack,
+// just change dir and don't increase the counter.
+// ---------------------------------------------------
+void add_SlideO_to_Mem() // MGY
+{
+	int iSlideObj;
+
+	if (SlideMem.count < MAX_TICEMEM-1) {
+	    for ( iSlideObj = 1 ; iSlideObj <= SlideMem.count; iSlideObj++) {
+			if ( (SlideMem.Objects[iSlideObj].x  == SlideO.x) &&
+				 (SlideMem.Objects[iSlideObj].y  == SlideO.y) )
+			{
+				SlideO_to_Mem( iSlideObj ); // Update the stack
+				return; // don't inc the counter
+			}
+		}
+		// Add this object to the stack
+		SlideMem.count++;
+		SlideO_to_Mem(SlideMem.count);
+		SlideO.s = (SlideMem.count>0);
+	}
+}
+
+// ---------------------------------------------------
+// Delete a Sliding Object from stack
+// ---------------------------------------------------
+void sub_SlideO_from_Mem( int iSlideObj ) // MGY
+{
+	int i;
+	for (i = iSlideObj ; i < SlideMem.count; i++) {
+		Mem_to_SlideO( i+1 );
+	    SlideO_to_Mem( i );
+	}
+	SlideMem.count--;
+	SlideO.s = (SlideMem.count>0);
+}
+
+// ---------------------------------------------------
+// If an object is sliding and is hit by a laser,
+// delete it from stack.
+// ---------------------------------------------------
+void del_SlideO_from_Mem( int x, int y ) // MGY
+{
+	int iSlideObj;
+    for ( iSlideObj = SlideMem.count; iSlideObj >=1 ; iSlideObj--) {
+		if ( (SlideMem.Objects[iSlideObj].x  == x) &&
+			 (SlideMem.Objects[iSlideObj].y  == y) )
+		{
+			// remove this object
+		    sub_SlideO_from_Mem( iSlideObj );
+
+			return;
+		}
+	}
+	SlideO.s = (SlideMem.count>0);
+}
+
+// ---------------------------------------------------
+// Used to handle a bug :  the speed bug
+// MGY - 22-nov-2002
+// Return True if the tank is on Convoyor.
+// ---------------------------------------------------
+int TestIfConvCanMoveTank()
+{
+	switch (Game.PF[Game.Tank.X][Game.Tank.Y])
+	{
+	case 15:
+		if (CheckLoc(Game.Tank.X,Game.Tank.Y-1)) // Conveyor Up
+			return(TRUE);
+		break;
+	case 16:
+		if (CheckLoc(Game.Tank.X+1,Game.Tank.Y))
+			return(TRUE);
+		break;
+	case 17:
+		if (CheckLoc(Game.Tank.X,Game.Tank.Y+1))
+			return(TRUE);
+		break;
+	case 18:
+		if (CheckLoc(Game.Tank.X-1,Game.Tank.Y))
+			return(TRUE);
+		break;
+	}
+	return( FALSE );
+}
 
 
 void SetButtons( int ButtonX)
@@ -271,6 +394,8 @@ void InitBuffers()
 	MB_TOS = MB_SP = 0;
 	SlideT.s = 0;														// nothing sliding
 	SlideO.s = 0;
+	SlideMem.count = 0; // MGY
+
 	UndoRollOver = UndoMax;
 }
 
@@ -334,6 +459,7 @@ void UndoStep()
 	RB_TOS = Game.RecP;						// clear all keys not processed
 	SlideT.s = 0;							// stop any sliding
 	SlideO.s = 0;
+	SlideMem.count = 0; // MGY
 	UndoBuffer[UndoP].Tank.Dir = 0;
 	UndoP--;
 	if (UndoP < 0)
@@ -441,6 +567,7 @@ void UpDateLaserBounce(int a, int b)
 {
 	HBRUSH ob;
 	int   x,y,h;
+	int iSlideObj; // MGY
 
 	ob = SelectObject(gDC,LaserColor);
 	x = XOffset + (laser.X*SpBm_Width);
@@ -448,7 +575,12 @@ void UpDateLaserBounce(int a, int b)
 	h = SpBm_Width / 2;
 
 	// we need to stop advance the LaserShot if sliding on ice & hit
-	if (SlideO.s && (SlideO.x == laser.X) && (SlideO.y == laser.Y)) LaserBounceOnIce = TRUE;
+	for ( iSlideObj=1; iSlideObj<= SlideMem.count; iSlideObj++) // MGY
+		// MGY
+		if (SlideMem.Objects[iSlideObj].s
+	        && (SlideMem.Objects[iSlideObj].x == laser.X)
+			&& (SlideMem.Objects[iSlideObj].y == laser.Y)) LaserBounceOnIce = TRUE;
+		//if (SlideO.s && (SlideO.x == laser.X) && (SlideO.y == laser.Y)) LaserBounceOnIce = TRUE;
 
 	switch (a)
 	{
@@ -611,8 +743,8 @@ void GFXInit()
 	if (GraphM == 1)					// External
 	{
 		Gh = 0;							// need this if error
-		Mh = LoadBitmapFile(dc,"mask.bmp");
-		if (Mh) Gh = LoadBitmapFile(dc,"game.bmp");
+		Mh = LoadBitmapFile(dc,MASK_BMP);
+		if (Mh) Gh = LoadBitmapFile(dc,GAME_BMP);
 		if (!(Mh || Gh)) GraphM = 0;	// Error so Set Mode 0 - Internal
 	}
 	else if (GraphM == 2)				// LTG
@@ -674,32 +806,6 @@ void GFXKill()
 	GFXOn = FALSE;
 }
 
-// ---- Load Tunnel ID Dialog Procedure ----
-// The editor uses this to pick which level ID number to assign
-// to the current tunnel.
-LRESULT CALLBACK LoadTID (HWND Dialog, UINT Message, WPARAM wparam, LPARAM lparam)
-{
-	char temps[40];
-	int i;
-
-	switch (Message)
-	{
-	case WM_INITDIALOG:
-
-		return(TRUE);
-	case WM_COMMAND:
-		if (wparam == 1)
-		{
-			GetWindowText(GetDlgItem(Dialog,101),temps,10);
-			i = atoi(temps);
-			if (i > 7) i = 0;
-			EndDialog(Dialog,i);
-			return(TRUE);
-		}
-	}
-	return(0);
-}
-
 void ChangeGO(int x, int y, int CurSelBM)  // Change Game Object
 {
 	int i;
@@ -737,11 +843,21 @@ void ChangeGO(int x, int y, int CurSelBM)  // Change Game Object
 void BuildBMField()
 {
 	int x,y,i,j;
+	unsigned char pt; // mgy 18-05-2003
 
 	Game.Tank.X = 7; Game.Tank.Y = 15;
 	Game.Tank.Dir = 1; Game.Tank.Firing = FALSE;
 	for (x = 0; x<16; x++) for (y = 0; y<16; y++)
 	{
+		// --- mgy 18-05-2003 only legal pieces ---
+		pt = Game.PF[x][y];
+		if(pt>0x19)
+		{
+			pt = GetTunnelID(x,y);
+			Game.PF[x][y] = (pt<<1) +0x40;
+		}
+		// --- end of 18-05-2003 ---
+
 		if (Game.PF[x][y] == 1)
 		{
 			i = 1;
@@ -924,6 +1040,7 @@ BOOL LoadNextLevel(int DirectLoad, int Scanning)
 	RB_TOS = 0;
 	SlideT.s = 0;							// Just in case
 	SlideO.s = 0;
+	SlideMem.count = 0; // MGY
 	if (ARecord && ( !PBOpen)) SendMessage(MainH,WM_COMMAND,123,0);
 	if (Backspace[BS_SP] != CurLevel)		// if CurLevel != LastLevel
 	{
@@ -1072,6 +1189,7 @@ void TranslateTunnel( int *x, int *y )
 	BlackHole = TRUE;
 }
 
+
 void ConvMoveTank(int x, int y, int check)
 {
 	UpDateSprite(Game.Tank.X,Game.Tank.Y);
@@ -1201,6 +1319,7 @@ MoveObj1:
 			// We didn't find a match so maybe the tank is it
 			if ((Game.PF[Game.Tank.X][Game.Tank.Y] == (bb & 0xFE)) && Game.Tank.Good)
 			{
+				Game.ScoreMove--; // MGY - 2003/05/18 - v408b15 -  Bartok Bug.lvl
 				UpDateTankPos(0,0);
 				UndoP--;
 			}
@@ -1276,32 +1395,56 @@ void IceMoveT()					// Move the tank on the Ice
 void IceMoveO()					// Move an Object on the Ice
 {
 	int savei;
+    int iSlideObj; // MGY
 
-	if (Game.PF2[SlideO.x][SlideO.y] == Obj_ThinIce)
-	{
-		Game.BMF2[SlideO.x][SlideO.y] = 9;
-		Game.PF2[SlideO.x][SlideO.y] = Obj_Water;	// Ice to Water
+	for ( iSlideObj = SlideMem.count; iSlideObj>= 1; iSlideObj--) // MGY
+    {
+		Mem_to_SlideO( iSlideObj ); // Get from memory
+
+		if ( iSlideObj <= SlideMem.count ) // just in case ... MGY
+			{
+
+			if (Game.PF2[SlideO.x][SlideO.y] == Obj_ThinIce)
+			{
+				Game.BMF2[SlideO.x][SlideO.y] = 9;
+				Game.PF2[SlideO.x][SlideO.y] = Obj_Water;	// Ice to Water
+			}
+
+			if (CheckLoc(SlideO.x + SlideO.dx, SlideO.y + SlideO.dy) &&
+			    (!((SlideO.x + SlideO.dx == Game.Tank.X) && (SlideO.y + SlideO.dy == Game.Tank.Y))))
+			{
+				savei = wasIce;
+				MoveObj(SlideO.x,SlideO.y,SlideO.dx,SlideO.dy,S_Push2);
+				AntiTank();
+
+				SlideO.x += SlideO.dx;					// Update Position
+				SlideO.y += SlideO.dy;					// Update Position
+				if (!savei) {
+			   		SlideO.s = FALSE;			// The ride is over
+					SlideO_to_Mem( iSlideObj ); // update memory
+					sub_SlideO_from_Mem( iSlideObj );
+				}
+				else {
+					SlideO_to_Mem( iSlideObj ); // update memory
+				}
+			}
+			else {
+
+				if (Game.PF2[SlideO.x][SlideO.y] == Obj_Water)
+					MoveObj(SlideO.x,SlideO.y,0,0,0);		// Drop Object in the water (was thin ice)
+				SlideO.s = FALSE;
+				SlideO_to_Mem( iSlideObj ); // update memory
+				sub_SlideO_from_Mem( iSlideObj );
+				AntiTank();										// incase an anti-tank is behind a block
+				//return; // MGY
+			}
+		}
+
+
 	}
 
-	if (CheckLoc(SlideO.x + SlideO.dx, SlideO.y + SlideO.dy) &&
-		    (!((SlideO.x + SlideO.dx == Game.Tank.X) && (SlideO.y + SlideO.dy == Game.Tank.Y))))
-	{
-		savei = wasIce;
-		MoveObj(SlideO.x,SlideO.y,SlideO.dx,SlideO.dy,S_Push2);
-		AntiTank();
-	}
-	else {
-
-		if (Game.PF2[SlideO.x][SlideO.y] == Obj_Water)
-			MoveObj(SlideO.x,SlideO.y,0,0,0);		// Drop Object in the water (was thin ice)
-		SlideO.s = FALSE;
-		AntiTank();										// incase an anti-tank is behind a block
-		return;
-	}
-
-	SlideO.x += SlideO.dx;					// Update Position
-	SlideO.y += SlideO.dy;					// Update Position
-	if (!savei) SlideO.s = FALSE;			// The ride is over
+	Mem_to_SlideO( SlideMem.count ); // Get from memory the last object of the list
+	SlideO.s = ( SlideMem.count > 0 );
 }
 
 void KillAtank( int x, int y, char bm)
@@ -1408,13 +1551,21 @@ int CheckLLoc(int x, int y, int dx, int dy)
 	}
 	if (wasIce)
 	{
+		// If is already sliding, del it !
+		del_SlideO_from_Mem( x, y);
+		// and add a new slide in a new dirrection
 		SlideO.x = x+dx;
 		SlideO.y = y+dy;
 		SlideO.s = TRUE;
 		SlideO.dx = dx;
 		SlideO.dy = dy;
+		add_SlideO_to_Mem();
 	}
-	else SlideO.s = FALSE;		// in case we side hit off of the ice
+	// MGY
+	else {
+	    // SlideO.s = FALSE;		// in case we side hit off of the ice
+		del_SlideO_from_Mem( x, y);
+	}
 	return (FALSE);
 }
 
@@ -1472,6 +1623,10 @@ LaserMoveJump:
 		Game.Tank.Firing = FALSE;
 		if (laser.Firing) UpDateSprite(laser.X,laser.Y);
 		if (Game_On || VHSOn) AntiTank();
+
+		// SpeedBug - MGY - 22-11-2002
+		if ( TestIfConvCanMoveTank() )
+			ConvMoving = TRUE;
 	}
 	if (LaserBounceOnIce) goto LaserMoveJump;
 }
@@ -1501,7 +1656,9 @@ void AntiTank()
 {
 	int x,y;
 	// Program Anti tank seek }
+
 	if (Game.Tank.Firing) return;
+
 	x = Game.Tank.X;	// Look to the right
 	while (CheckLoc(x,Game.Tank.Y)) x++;
 	if ((x<16) && (Game.PF[x][Game.Tank.Y] == 10) && (Game.Tank.X != x))
@@ -1586,7 +1743,7 @@ void SetGameSize(int i)
 		SpBm_Height = 24;
 		ContXPos = 419;
 		EditBMWidth = 6;
-		SetWindowPos(MainH,0,0,0,ContXPos+190,455,SWP_NOMOVE | SWP_NOZORDER);
+		SetWindowPos(MainH,0,0,0,ContXPos+190,463,SWP_NOMOVE | SWP_NOZORDER);
 		LaserOffset = 10;
 		break;
 
@@ -1595,7 +1752,7 @@ void SetGameSize(int i)
 		SpBm_Height = 32;
 		ContXPos = 550;
 		EditBMWidth = 5;
-		SetWindowPos(MainH,0,0,0,ContXPos+190,585,SWP_NOMOVE | SWP_NOZORDER);
+		SetWindowPos(MainH,0,0,0,ContXPos+190,591,SWP_NOMOVE | SWP_NOZORDER);
 		LaserOffset = 13;
 		break;
 
@@ -1604,7 +1761,7 @@ void SetGameSize(int i)
 		SpBm_Height = 40;
 		ContXPos = 680;
 		EditBMWidth = 4;
-		SetWindowPos(MainH,0,0,0,ContXPos+190,714,SWP_NOMOVE | SWP_NOZORDER);
+		SetWindowPos(MainH,0,0,0,ContXPos+190,719,SWP_NOMOVE | SWP_NOZORDER);
 		LaserOffset = 17;
 		break;
 
@@ -1636,11 +1793,42 @@ void SetGameSize(int i)
 void SavePBFile()
 {
 	HANDLE Book;
+	char temps[60];
+	char SaveAuthor[31];
 
-	Book = CreateFile (PBFileName,GENERIC_WRITE,0,NULL,CREATE_ALWAYS,0,NULL);		// Create New PlayBack File
-	WriteFile(Book,&PBSRec,sizeof(PBSRec),&BytesMoved,NULL);							// Save Header Info
-	WriteFile(Book,RecBuffer,PBSRec.Size,&BytesMoved,NULL);							// Data
+	// Get Hs.name
+	GetPrivateProfileString("DATA",psUser,"",temps,5,INIFile);
+    if (stricmp(temps,HS.name) != 0)
+	{
+        strcpy(HS.name,temps);
+        WritePrivateProfileString("DATA",psUser,HS.name,INIFile);
+    }
+
+	if ( temps[0] != '\0' )
+	{
+		// Fill the name with spaces
+		strcat( temps,"      ");
+		temps[4] = '-';
+		temps[5] = '\0';
+	}
+	// Add The Author's name
+	strcat(temps,PBSRec.Author);
+	// Limit the size
+	temps[30] = '\0';
+
+
+	// Save	PBSRec
+    strcpy(SaveAuthor,PBSRec.Author);
+	strcpy(PBSRec.Author,temps);
+
+	// Write file
+	Book = CreateFile (PBFileName,GENERIC_WRITE,0,NULL,CREATE_ALWAYS,0,NULL);// Create New PlayBack File
+	WriteFile(Book,&PBSRec,sizeof(PBSRec),&BytesMoved,NULL);				 // Save Header Info
+	WriteFile(Book,RecBuffer,PBSRec.Size,&BytesMoved,NULL);					 // Data
 	CloseHandle(Book);
+
+	// restore 	PBSRec
+    strcpy(PBSRec.Author,SaveAuthor);
 }
 
 

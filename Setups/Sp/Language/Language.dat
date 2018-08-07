@@ -1,0 +1,484 @@
+##### LTank32 Language File 4.0 #############
+#                                           #
+# Language : Español ( 85% complete !)      #
+# Authors  : Sebastian Soto (2002)          #
+#            Juan Antonio Zaratiegui (2004) #
+# Date     : 29 March 2004 - v  1.1         #
+#                                           #
+#############################################
+
+##### IMPORTANT NOTE TO THE TRANSLATORS #################
+#                                                       #
+# You have to translate all the lines except those      #
+# beginning with a pound sign. ( # )                    #
+#                                                       #
+# No lines must be removed or added.                    #                  
+#                                                       #
+# All lines must stay at their original position.       #                  
+#                                                       #
+# In some cases changing the length of a message can    #
+# produce strange results. You will have to make tests. #
+#                                                       #
+#########################################################
+
+##### MAIN MENU ##########################
+00,--,--,&Juego
+00,00,--,&Nuevo\tF2
+00,01,--,&Cargar nivel...\tL
+00,02,--,&Saltar nivel\tS
+00,03,--,&Previous Level\tP
+00,04,--,Last Level Playe&d\tBkSp
+00,05,--,SEPARATOR
+00,06,--,&Abrir archivo de niveles...\tO
+00,07,--,SEPARATOR
+00,08,--,&Ver puntajes máximos\tV
+00,09,--,&Lista de puntajes máximos global
+00,10,--,SEPARATOR
+00,11,--,&Grabar juego\tF5
+00,12,--,G&uardar grabación\tF6
+00,13,--,Resume Re&cording\tF8
+00,14,--,&Reproducir juego...\tF7
+00,15,--,SEPARATOR
+00,16,--,Pr&int GameBoard
+00,17,--,SEPARATOR
+00,18,--,Sal&ir
+01,--,--,J&ugada
+01,00,--,&Reiniciar\tR
+01,01,--,&Deshacer última movida/disparo\tU
+01,02,--,&Guardar posición\tCtrl+C
+01,03,--,Restaurar &Posición\tCrtl+V
+01,04,--,RePla&y\tF4
+02,--,--,&Opciones
+02,00,--,&Animación\tA
+02,01,--,&Sonido\tN
+02,02,--,&Recordar último nivel
+02,03,--,Sa&ltar niveles completados
+02,04,--,A&utoGrabación
+02,05,--,Disable &Warnings
+02,06,--,SEPARATOR
+02,07,--,&Tamaño
+02,07,00,&Pequeño
+02,07,01,&Mediano
+02,07,02,&Grande
+02,08,--,&Cambiar dificultad...\tD
+02,09,--,Change &Graphics ...\tCtrl+G
+03,--,--,&Editor [F9]
+04,--,--,&Ayuda
+04,00,--,&Índice\tH
+04,01,--,SEPARATOR
+04,02,--,&Index
+04,03,--,&Quick Help\tF1
+04,04,--,&Revisiones (Historia)
+04,05,--,SEPARATOR
+04,06,--,&Acerca de...
+
+##### EDITOR MENU ######################
+00,--,--,&Editor
+00,00,--,&Clear Field\tCtrl+C
+00,01,--,&Cargar...\tCtrl+L
+00,02,--,&Guardar...\tCtrl+S
+00,03,--,Save &As...
+00,04,--,&Salir
+01,--,--,&Idea
+02,--,--,&Shift
+02,00,--,&Right\tCtrl+Direction
+02,01,--,&Left
+02,02,--,&Up
+02,03,--,&Down
+03,--,--,&Cerrar Editor [F9]
+04,--,--,&Dificultad
+04,00,--,&Niños
+04,01,--,&Fácil
+04,02,--,&Mediano
+04,03,--,&Difícil
+04,04,--,&Sangriento
+05,--,--,&Ayuda
+05,00,--,&Editor\tF1
+05,01,--,&Hacio niveles
+05,02,--,SEPARATOR
+05,03,--,&Acerca de...
+
+##### MAIN BUTONS  ( 9 lines) #########
+#Undo
+Undo
+#Save Position
+Guardar Position
+#Restore Position
+Cargar Position
+#New
+Nuevo
+#<< Level
+<< Nivel
+#Level >>
+Nivel >>
+#Hint
+Idea
+#Restart
+Reiniciar
+#Load Level
+Cargar Nivel
+
+##### MESSAGES  ( 44 lines ) ###########
+#The Level file can not be found\nPlease select a new one
+El archivo de niveles no puede ser encontrado\nPlease select a new one
+#Level Files (*.LVL)
+Archivos de niveles (*.LVL)
+#Pick LaserTank Level File
+Selecciona archivo de niveles
+#Playback Files (*.LPB)
+Archivos de reproducción (*.LPB)
+#Save Playback File
+Guardar archivo de reproducción
+#LaserTank Error
+Error de LaserTank
+#Old High Score > M:
+Puntaje máximo anterior > M:
+#M: 
+M: 
+# S: 
+ D: 
+# I: 
+ I: 
+#Congratulation's You beat it !!
+Felicidades, lo venciste !!
+#Playback Level : 
+Nivel de reproducción: 
+#\nRecorded by 
+\nGrabado por 
+#\nCan Not be found in the current level file\n< 
+\nCan Not be found in the current level file\n< 
+#Do You want to Continue Recording ?
+Quieres seguir grabando?
+#&Play
+Re&producir
+#&Pause
+&Pausar
+#Out of Memory - Undo Roll Over
+Out of Memory - Undo Roll Over
+#Open Playback file
+Abrir archivo de reproducción
+#LaserTank Hint
+Idea en LaserTank
+#Level NOT Saved, Save Data ?
+Nivel no guardado, guardarlo?
+# - Kids
+ - Niños
+# - Easy
+ - Fácil
+# - Medium
+ - Mediano
+# - Hard
+ - Difícil
+# - Deadly
+ - Sangriento
+# - [Editor]
+ - [Editor]
+#LaserTank Editor
+Editor de LaserTank
+#NOT a Valid LaserTank Graphics Set
+NOT a Valid LaserTank Graphics Set
+#game.bmp and/or mask.bmp Not Found
+game.bmp and/or mask.bmp Not Found
+#Open Playback file for Resume
+Open Playback file for Resume
+#Return to Game
+Return to Game
+#< NO HINT SUBMITTED FOR THIS LEVEL >
+< NO HINT SUBMITTED FOR THIS LEVEL >
+#LaserTank Level #
+LaserTank Level #
+#Select LaserTank Graphics Directory
+Select LaserTank Graphics Directory
+#Game in Progress ...
+Game in Progress ...
+#You will lose game data.\nDo you want to save the game ?
+You will lose game data.\nDo you want to save the game ?
+#Beat
+Beat
+#All
+All
+#Completed %d of %d levels
+Completed %d of %d levels
+#Difficulty Set = 
+Difficulty Set = 
+#KEMHD  (means: Kids, Easy, Medium, Hard, Deadly)
+NFMDS
+#LaserTank Graphics file Not Found !
+LaserTank Graphics file Not Found !
+# LaserTank *** RECORDING ***
+ LaserTank ** GRABANDO **
+
+
+
+##### HELP SECTIONS : ( 4 lines) ########
+#Editor Instructions
+#Revisions
+#Writing Your Own Levels
+#LaserTank.hlp
+#####
+Editor Instructions
+Revisions
+Writing Your Own Levels
+Language\LaserTankSp.hlp
+
+
+##### ABOUTBOX DIALOG : ( 4 lines) ########
+#About LaserTank
+#&Ok
+#By Jim Kindley
+#Version
+#####
+Acerca de LaserTank
+&Si
+Por Jim Kindley
+Versión
+
+##### DEADBOX DIALOG :  ( 3 lines) ########
+#&Undo Last Move
+#YOU ARE DEAD ! ! !
+#&ReStart
+#####
+&Deshacer última jugada
+ESTÁS MUERTO ! ! !
+&Reiniciar
+
+##### DIFFBOX DIALOG :  ( 9 lines) ########
+#Game Difficulty
+#&Ok
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#&All
+#Select
+#####
+Dificultad
+S&i
+&Niños
+&Fácil
+&Mediano
+&Difícil
+&Sangriento
+&Todas
+Selecciona
+
+##### GRAPHBOX DIALOG :  ( 9 lines) ######
+#Select Graphics Set
+#Select One
+#&Internal Graphics
+#&User Graphics 
+#&Close
+#Author :
+#LaserTank Graphic Set Description
+#&View Opening Screen 
+#Change &Directory
+#####
+Select Graphics Set
+Select One
+&Internal Graphics
+&User Graphics 
+&Cerrar
+Autor :
+LaserTank Graphic Set Description
+&View Opening Screen 
+Change &Directory
+
+##### LOADLEV DIALOG :  ( 7 lines) ######
+#Pick Level to Load
+#&Cancel
+#&Filter
+#File:
+#- File Loading Error -
+#Lev#   Name                           Author
+#or Direct Level Number Entry >>
+#####      
+Selecciona el nivel
+&Cancelar
+&Buscar
+Archivo :
+- Error al cargar el archivo -
+Nivel#  Nombre                         Autor
+or Direct Level Number Entry >>
+
+#### HINTBOX DIALOG :  ( 3 lines) ######
+#Modify Hint
+#&Ok
+#&Cancel
+#####
+Cambiar idea
+&Si
+&Cancelar
+
+#### SEARCH DIALOG :   ( 14 lines) ######
+#Filter Level Data
+#Enter Search String :
+#Search By
+#&Title
+#&Author
+#&Cancel
+#&Ok
+#&Only Unsolved Levels
+#&Filter by Difficulty
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#####
+Buscar datos de los niveles
+Coloca la palabra de búsqueda :
+Buscar por
+&Título
+&Autor
+&Cancelar
+&Si
+&Only Unsolved Levels
+&Filter by Difficulty
+&Niños
+&Fácil
+&Mediano
+&Difícil
+&Sangriento
+
+#### RETBOX DIALOG :   ( 1 line) ##########
+#&Return to Game
+#####
+&Return to Game
+
+
+#### WINBOX DIALOG :   ( 4 lines) #########
+#&Ok
+#You Won ! ! !
+#File :
+#- Error -
+#####
+&Si
+GANASTE ! ! !
+File :
+- Error -
+
+#### LOADTID DIALOG :   ( 3 lines) ########
+#Pick Tunnel ID #
+#&Ok
+#Enter the ID Number for this Tunnel
+#####
+Pick Tunnel ID #
+&Si
+Enter the ID Number for this Tunnel
+
+
+
+#### HIGHBOX DIALOG :   ( 9 lines) ########
+#! New High Score !
+#&Ok
+#Level Number :
+#Level Name :
+#Moves :
+#Shots :
+#Initials :
+#Global HS :
+#- No Data -
+#####
+! Nuevo puntaje máximo !
+&Si
+Nivel número :
+Nombre del nivel :
+Movidas :
+Disparos :
+Iniciales :
+PM Global :
+- No hay Datos -
+
+#### HIGHLIST DIALOG :   ( 4 lines) #######
+#High Scores
+#&Ok
+#- File Loading Error -
+#Lev#  Name                          Moves  Shots  Initials
+#####
+Puntajes máximos
+&Si
+- File Loading Error -
+Nivel#  Nombre                Movidas  Disparos  Iniciales
+
+
+#### GHIGHLIST DIALOG :   ( 7 lines) #######
+#Global High Scores
+#&Ok
+#Lev#  Name                             M      S   Init   M     S  Init
+#Global
+#Local
+#- No Data -
+#&Beat
+#####
+Puntajes máximos globales
+&Si
+Nivel#  Nombre                       M     D Inic.     M     D Inic.
+Global
+Local
+- No Data -
+&Beat
+
+#### RECBOX DIALOG :   ( 3 lines) #######
+#Recording Game
+#Please Enter Your Name
+#&Ok
+#####
+Grabando juego
+Por favor coloca tu nombre
+&Si
+
+#### PLAYBOX DIALOG :   ( 10 lines) ######
+#Playback Game
+#&Close
+#&Play
+#&Reset
+#&Fast
+#&Slow
+#S&tep
+#Step :
+#of
+#Speed
+#####
+Reproducir juego
+&Cerrar
+Re&producir
+&Resetear
+R&ápido
+&Lento
+&Pasos
+Paso :
+de
+Velocidad
+
+#### PICKLEVEL DIALOG :   ( 6 lines) ######
+#Save LaserTank Level
+#&Ok
+#Enter the Level Number to
+#Save :
+#= Add
+#&Clear High Score
+######
+Guardar nivel de LaserTank
+&Si
+Anota el número del nivel a
+guardar :
+= Agregar
+&Borrar puntaje máximo
+
+
+##### ABOUTBOX MESSAGE : (14 lines Max, 300 bytes each max) ###
+     LaserTank es un programa que Vd. puede usar libremente pero requiere su ayuda y colaboración.\n\n
+     Despues que Vd. se haya convertido en un jugador habilidoso, puede ser que desee crear uno o más niveles nuevos, usando el editor de niveles y enviándolos junto con los playbacks  (Carpeta LPB).\n\n
+     Nosotros actulizaremos el programa cada tanto y agregaremos todos los buenos niveles que nos sean enviados   Vea: "Escribiendo sus propios niveles"  y "Grabando y Playback "  en la carpeta de Ayuda.\n\n
+     (Por Favor, demuestre inventiva y no trate de replicar lo que ya existe. )\n
+     (Ya hay muchos niveles disponibles en la página web de LaserTank. )\n\n
+     Mira  "Haciendo tus propios niveles" en el archivo de ayuda.\n\n
+     Traducido por Sebastian Soto (2002-2005) y Juan Antonio Zaratiegui (2004)\n\n
+     Tú puedes enviarme tus niveles por E-mail :\n
+        lasertank@globetrotter.net\n\n
+     Para nuevos niveles, visita la página WEB de LaserTank :\n
+        http://www.jccontrols.net/laser\n
+     For Help or more info about this game join or check out the Yahoo Group at :\n
+        http://groups.yahoo.com/lasertank\n
+################ END ######################
