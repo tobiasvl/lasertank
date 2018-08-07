@@ -1,0 +1,81 @@
+/*******************************************************
+ **             LaserTank ver 4.0                     **
+ **               By Jim Kindley                      **
+ **               (c) 2002                            **
+ **         The Program and Source is Public Domain   **
+ *******************************************************/
+
+/* LaserTank Ver 4.0 (32Bit) Resource File */
+
+#include <windows.h>
+
+CONTROLBM BITMAP "control.bmp"
+OPENING BITMAP "opening.bmp"
+GAMEBM BITMAP "Game.bmp"
+MASKBM BITMAP "mask.bmp"
+
+// Load sounds as RCData type
+
+BRICKS RCDATA "sounds\\bricks.wav"
+
+FIRE RCDATA "sounds\\fire.wav"
+
+MOVE RCDATA "sounds\\move.wav"
+
+HEAD RCDATA "sounds\\head.wav"
+
+TURN RCDATA "sounds\\turn.wav"
+
+ENDLEV RCDATA "sounds\\endlev.wav"
+
+DIE RCDATA "sounds\\die.wav"
+
+ANTI1 RCDATA "sounds\\Anti1.wav"
+
+ANTI2 RCDATA "sounds\\Anti2.wav"
+
+DEFLB RCDATA "sounds\\deflb.wav"
+
+LASER2 RCDATA "sounds\\laser2.wav"
+
+PUSH2 RCDATA "sounds\\Push2.wav"
+
+PUSH1 RCDATA "sounds\\Push1.wav"
+
+ROTATE RCDATA "sounds\\rotate.wav"
+
+PUSH3 RCDATA "sounds\\Push3.wav"
+
+SINK RCDATA "sounds\\Sink.wav"
+
+// Import Menus, Accelerators & Dialogs from Lanquage file
+
+#include "lt32l_us.inc"
+
+ABOUT RCDATA "about.txt"
+
+icon1 	ICON 	"ltank.ico"
+jek 	ICON	"jek.ico"
+
+1 VERSIONINFO
+FILEVERSION 4, 0, 0, 0
+PRODUCTVERSION 4, 0, 0, 0
+FILEOS 0x4004L
+FILETYPE 0x01L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904E4"
+		BEGIN
+			VALUE "CompanyName", "JEK Software\000\000"
+			VALUE "FileDescription", "Laser Tank Logic Game\000"
+			VALUE "FileVersion", "4.0.6\000"
+			VALUE "InternalName", "ltank32\000"
+			VALUE "LegalCopyright", "Copyright © JEK Software 2002\000"
+			VALUE "OriginalFilename", "LaserTank.EXE\000"
+			VALUE "ProductVersion", "4.0.6 - 06/13/02\000"
+		END
+	END
+END
+
+

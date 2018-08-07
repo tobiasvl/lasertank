@@ -1,0 +1,17 @@
+4.0.6
+
+
+2-25-02 changed MoveObj routine to use old bitmap and not use the GetOBM macro.
+	bm = Game.BMF[x][y];	(Tere6 Bug)
+2-26-02 Modified Restart ===== if (UndoP > 0 ) UpdateUndo();
+	also reset the mouse buffers in the restart routine ( Andys Bug)
+2-26-02 modified so Open File Dialoges don't allow *.*
+2-26-02 modified SendMessage(DEAD) in UpDateTankPos to PostMessage(DEAD)
+	Added "BlackHole" Variable
+2-26-02 modified so program won't start with junk on command line. It must be ???.lvl to load.
+2-27-02 Flag will now animate if something is over it.
+3-2-02	If a sliding mirror is hit, it will deflect the laser & change direction.
+3-2-02	Fixed Bug if a sliding object is hit on the side.
+3-12-02 Changed Sliding on Ice again, Antitanks will slide if hit & mirror will double move lasershot
+6-11-02 Fixed Bug in UpdateLaserBounce caused from above
+6-11-02 Converted RC file to read sounds.WAV files directly ( lrc is fixed)
