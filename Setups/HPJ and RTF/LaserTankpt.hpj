@@ -1,0 +1,15 @@
+[OPTIONS]
+COMPRESS= 0x0c 
+TITLE=LaserTank Help
+CONTENTS=Game_Instructions
+COPYRIGHT=JEK Software ©2001
+LCID = 0x409 0 0
+
+[WINDOWS]
+main="",,0,(247,254,190),(175,175,175),f0
+win1="LaserTank Help",(200,10,600,435),60672,(247,254,190),(175,175,175),f2
+
+[CONFIG]
+
+[FILES]
+LaserTankpt.rtf

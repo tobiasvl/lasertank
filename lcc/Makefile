@@ -12,10 +12,10 @@ OBJS=\
 	language.obj
 
 LIBS=OLE32.LIB SHELL32.LIB WINMM.LIB
-EXE=d:\lasertank\setups\files\lasertank412.exe
+EXE=d:\lasertank\setups\files\lasertank.exe
 
 $(EXE):	$(OBJS) Makefile
-	$(LINKER)  -s -subsystem windows -o $(SRCDIR)\setups\files\lasertank412.exe $(OBJS) $(LIBS)
+	$(LINKER)  -s -subsystem windows -o $(SRCDIR)\setups\files\lasertank.exe $(OBJS) $(LIBS)
 
 # Build LTANK2.C
 LTANK2_C=\
@@ -192,8 +192,8 @@ LTANK_RC=\
 	$(SRCDIR)\lt32l_us.h\
 	$(SRCDIR)\lt32l_us.inc\
 
-ltank.res:	$(LTANK_RC) $(SRCDIR)\LTANK.RC
-	$(LCCROOT)\bin\lrc.exe -I$(SRCDIR) -IC:\Lcc\Include  $(SRCDIR)\ltank.rc
+ltank.res:	$(LTANK_RC) d:\lasertank\ltank.rc
+	$(LCCROOT)\bin\lrc -Id:\lasertank -IC:\Lcc\Include  d:\lasertank\ltank.rc
 
 # Build LTANK.C
 LTANK_C=\
@@ -269,7 +269,7 @@ language.obj: $(LANGUAGE_C) $(SRCDIR)\language.c
 	$(CC) -c $(CFLAGS) $(SRCDIR)\language.c
 
 link:
-	$(LINKER)  -s -subsystem windows -o $(SRCDIR)\setups\files\lasertank412.exe $(OBJS) $(LIBS)
+	$(LINKER)  -s -subsystem windows -o $(SRCDIR)\setups\files\lasertank.exe $(OBJS) $(LIBS)
 
 clean:
-	del $(OBJS) lasertank412.exe
+	del $(OBJS) d:\lasertank\setups\files\lasertank.exe

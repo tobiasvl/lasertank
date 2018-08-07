@@ -30,13 +30,19 @@ Instruction for compilling the LaserTank Project
     Compiler / Make
     
 8)  Quit Wedit, the LaserTank file is ready in :
-    D:\LaserTank\Setups\Files\lasertank4xx.exe
+    D:\LaserTank\Setups\Files\lasertank.exe
 
-9)  Launch the batch :
-    D:\LaserTank\Setups\Setup Generator\_Launch_Setupgen.bat
-    
-    
-10) In SetupGenerator, Choose the "Projet actuel" to "Lasertank 4.x.x"
+9)  Compact the file with UPX
+    Open a DOS session
+    D:
+    CD \LaserTank\Setups
+    UPX -9 Files\LaserTank.exe
+    EXIT
+
+10) Launch the Setup Generator :
+    D:\LaserTank\Setups\Setupgen.exe
+        
+11) In SetupGenerator, Choose the "Projet actuel" to "Lasertank 4.x.x"
     Clic on the "Creation" Button
     The Setup Kit is ready in
     D:\LaserTank\Setups\LT4_Setup.exe

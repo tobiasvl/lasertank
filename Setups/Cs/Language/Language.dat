@@ -1,0 +1,479 @@
+##### LTank32 Language File 4.0 #####################
+#                                                   #
+# Language : Simplified Chinese (100% complete)     #
+# Author   : Roy Chen                               #
+# Date     : 28 Aug 2005 - v  1.0                   #
+#                                                   #
+#####################################################
+
+##### IMPORTANT NOTE TO THE TRANSLATORS #################
+#                                                       #
+# You have to translate all the lines except those      #
+# beginning with a pound sign. ( # )                    #
+#                                                       #
+# No lines must be removed or added.                    #   
+#                                                       #
+# All lines must stay at their original position.       #   
+#                                                       #
+# In some cases changing the length of a message can    #
+# produce strange results. You will have to make tests. #
+#                                                       #
+#########################################################
+
+##### MAIN MENU ##########################
+00,--,--,&G游戏
+00,00,--,&N新游戏\tF2
+00,01,--,&L至任一关...\tL
+00,02,--,&S至下一关\tS
+00,03,--,&P至前一关\tP
+00,04,--,至前一个玩过的关卡\tBkSp
+00,05,--,SEPARATOR
+00,06,--,&O开启关卡文件...\tO
+00,07,--,SEPARATOR
+00,08,--,&V查看高分记录\tV
+00,09,--,&G全球高分记录\tG
+00,10,--,SEPARATOR
+00,11,--,&R记录关卡\tF5
+00,12,--,&A储存记录\tF6
+00,13,--,&C回复记录\tF8
+00,14,--,&B播放关卡...\tF7
+00,15,--,SEPARATOR
+00,16,--,&I列印游戏画面
+00,17,--,SEPARATOR
+00,18,--,&E离开游戏
+01,--,--,&M动作
+01,00,--,&R重新玩\tR
+01,01,--,&U复原最后移动/射击\tU
+01,02,--,&S储存位置\tCtrl+C
+01,03,--,&P回复位置\tCrtl+V
+01,04,--,&Y重播\tF4
+02,--,--,&O选项
+02,00,--,&A动画\tA
+02,01,--,&N音效\tN
+02,02,--,&R记住最后玩过的关卡
+02,03,--,&K跳过已过关的关卡
+02,04,--,&T自动记录
+02,05,--,&W关闭警示
+02,06,--,SEPARATOR
+02,07,--,&S画面尺寸
+02,07,00,&S小
+02,07,01,&M中
+02,07,02,&L大
+02,08,--,&D游戏困难度...\tD
+02,09,--,&G选择游戏画面...\tCtrl+G
+03,--,--,&E编辑关卡 [F9]
+04,--,--,&H帮助
+04,00,--,&H提示\tH
+04,01,--,SEPARATOR
+04,02,--,&I帮助主题
+04,03,--,&Q快速帮助\tF1
+04,04,--,&R更新记录(历史)
+04,05,--,SEPARATOR
+04,06,--,&A关于...
+
+##### EDITOR MENU ######################
+00,--,--,&E编辑
+00,00,--,&C清除场地\tCtrl+C
+00,01,--,&L开启关卡...\tCtrl+L
+00,02,--,&S储存关卡\tCtrl+S
+00,03,--,&A以另外的档名储存...
+00,04,--,&E离开游戏
+01,--,--,&H提示
+02,--,--,&S调整场地
+02,00,--,&R右\tCtrl+方向键
+02,01,--,&L左
+02,02,--,&U上
+02,03,--,&D下
+03,--,--,&回到游戏 [F9]
+04,--,--,&D困难度
+04,00,--,&K儿童
+04,01,--,&E简单
+04,02,--,&M中等
+04,03,--,&H困难
+04,04,--,&D难得要死
+05,--,--,&H帮助
+05,00,--,&E编辑器简介\tF1
+05,01,--,&W编辑关卡
+05,02,--,SEPARATOR
+05,03,--,&A关于...
+
+##### MAIN BUTONS  ( 9 lines) #########
+#Undo
+复 原
+#Save Position
+储 存 位 置
+#Restore Position
+回 复 位 置
+#New
+新游戏
+#<< Level
+<前一关
+#Level >>
+下一关>
+#Hint
+提 示
+#Restart
+重新玩
+#Load Level
+到 任 一 关
+
+##### MESSAGES  ( 44 lines ) ###########
+#The Level file can not be found\nPlease select a new one
+找不到关卡文件\n请选择另外一个
+#Level Files (*.LVL)
+关卡文件 (*.LVL)
+#Pick LaserTank Level File
+挑选 LaserTank 关卡文件
+#Playback Files (*.LPB)
+关卡记录文件 (*.LPB)
+#Save Playback File
+储存关卡记录文件
+#LaserTank Error
+LaserTank 错误讯息
+#Old High Score > M:
+旧高分记录 > M:
+#M: 
+M: 
+# S: 
+ S: 
+# I: 
+ I: 
+#Congratulation's You beat it !!
+恭喜，你过关了 !!
+#Playback Level : 
+播放关卡 : 
+#\nRecorded by 
+\n记录人 : 
+#\nCan Not be found in the current level file\n< 
+\nC在目前关卡的文件找不到\n< 
+#Do You want to Continue Recording ?
+您要继续记录 ?
+#&Play
+&P播放
+#&Pause
+&P暂停
+#Out of Memory - Undo Roll Over
+记忆体不足 - 复原记录会被覆盖
+#Open Playback file
+开启关卡记录文件
+#LaserTank Hint
+LaserTank 提示
+#Level NOT Saved, Save Data ?
+关卡并未储存，是否要存档 ?
+# - Kids
+ - 儿童
+# - Easy
+ - 简单
+# - Medium
+ - 中等
+# - Hard
+ - 困难
+# - Deadly
+ - 难得要死
+# - [Editor]
+ - [编辑器]
+#LaserTank Editor
+LaserTank 编辑器
+#NOT a Valid LaserTank Graphics Set
+不是有效的 LaserTank 画面设置
+#game.bmp and/or mask.bmp Not Found
+找不到 game.bmp 和/或 mask.bmp
+#Open Playback file for Resume
+开启关卡记录文件以回复
+#Return to Game
+回游戏
+#< NO HINT SUBMITTED FOR THIS LEVEL >
+< 这个关卡没有提示 >
+#LaserTank Level #
+LaserTank 关卡 #
+#Select LaserTank Graphics Directory
+选择 LaserTank 画面储存的目录
+#Game in Progress ...
+游戏进行中...
+#You will lose game data.\nDo you want to save the game ?
+你会失去的游戏记录.\n你是否要存档 ?
+#Beat
+过关
+#All
+全选
+#Completed %d of %d levels
+完成 %d 于 %d 关
+#Difficulty Set = 
+游戏困难度 = 
+#KEMHD  (means: Kids, Easy, Medium, Hard, Deadly)
+KEMHD
+#LaserTank Graphics file Not Found !
+找不到 LaserTank 画面文件 !
+# LaserTank *** RECORDING ***
+ LaserTank *** 记录中 ***
+
+
+##### HELP SECTIONS : ( 4 lines) ########
+#Editor Instructions
+#Revisions
+#Writing Your Own Levels
+#LaserTank.hlp
+#####
+编辑器指示
+版本
+编辑您自己的关卡
+Language\LaserTankCT.hlp
+
+
+##### ABOUTBOX DIALOG : ( 4 lines) ########
+#About LaserTank
+#&Ok
+#By Jim Kindley
+#Version
+#####
+关于 LaserTank
+&O确定
+由 Jim Kindley 制作
+版本
+
+##### DEADBOX DIALOG :  ( 3 lines) ########
+#&Undo Last Move
+#YOU ARE DEAD ! ! !
+#&ReStart
+#####
+&U复原最后动作
+你死啦 ! ! !
+&R重新玩
+
+##### DIFFBOX DIALOG :  ( 9 lines) ########
+#Game Difficulty
+#&Ok
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#&All
+#Select
+#####
+游戏困难度
+&O确定
+&K儿童
+&E简单
+&M中等
+&H困难
+&D难得要死
+&A全选
+选择
+
+##### GRAPHBOX DIALOG :  ( 9 lines) ######
+#Select Graphics Set
+#Select One
+#&Internal Graphics
+#&User Graphics 
+#&Close
+#Author :
+#LaserTank Graphic Set Description
+#&View Opening Screen 
+#Change &Directory
+#####
+选择游戏画面
+选一个
+&B预设画面
+&U你自己的画面
+&关闭
+作者 :
+LaserTank 画面描述
+&V查看开启画面
+&D改变目录
+
+##### LOADLEV DIALOG :  ( 7 lines) ######
+#Pick Level to Load
+#&Cancel
+#&Filter
+#File:
+#- File Loading Error -
+#Lev#   Name                           Author
+#or Direct Level Number Entry >>
+#####      
+选择要玩的关卡
+&C取消
+&F过滤器
+ 关卡文件:
+- 文件载入错误 -
+编号     名称                           作者
+    直接输入关卡编号 >>
+
+
+#### HINTBOX DIALOG :  ( 3 lines) ######
+#Modify Hint
+#&Ok
+#&Cancel
+#####
+修改提示
+&O确定
+&C取消
+
+
+#### SEARCH DIALOG :   ( 14 lines) ######
+#Filter Level Data
+#Enter Search String :
+#Search By
+#&Title
+#&Author
+#&Cancel
+#&Ok
+#&Only Unsolved Levels
+#&Filter by Difficulty
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#####
+过滤关卡
+输入搜寻字串 :
+寻找
+&T关卡名称
+&A作者
+&C取消
+&O确定
+&O只找未过关的关卡
+&F依困难度搜寻
+&K儿童
+&E简单
+&M中等
+&H困难
+&D难得要死
+
+#### RETBOX DIALOG :   ( 1 line) ##########
+#&Return to Game
+#####
+回游戏
+
+
+#### WINBOX DIALOG :   ( 4 lines) #########
+#&Ok
+#You Won ! ! !
+#File :
+#- Error -
+#####
+&O确定
+您赢啦 ! ! !
+关卡文件:
+- 错误 -
+
+#### LOADTID DIALOG :   ( 3 lines) ########
+#Pick Tunnel ID #
+#&Ok
+#Enter the ID Number for this Tunnel
+#####
+选择隧道编号
+&O确定
+输入隧道编号 :
+
+
+
+#### HIGHBOX DIALOG :   ( 9 lines) ########
+#! New High Score !
+#&Ok
+#Level Number :
+#Level Name :
+#Moves :
+#Shots :
+#Initials :
+#Global HS :
+#- No Data -
+#####
+! 新的高分记录 !
+&O确定
+关卡编号:
+关卡名称:
+移动数:
+射击数:
+原先记录:
+全球记录:
+- 无记录 -
+
+#### HIGHLIST DIALOG :   ( 4 lines) #######
+#High Scores
+#&Ok
+#- File Loading Error -
+#Lev#  Name                          Moves  Shots  Initials
+#####
+高分记录
+&O确定
+- 文件载入错误 -
+编号    名称                      移动数  射击数  过关人
+
+#### GHIGHLIST DIALOG :   ( 7 lines) #######
+#Global High Scores
+#&Ok
+#Lev#  Name                             M      S   Init   M     S  Init
+#Global
+#Local
+#- No Data -
+#&Beat
+#####
+全球高分记录
+&O确定
+编号    名称                           移动  射击 过关人   移动  射击 过关人
+全球
+本地
+- 无记录 -
+&B达到
+
+#### RECBOX DIALOG :   ( 3 lines) #######
+#Recording Game
+#Please Enter Your Name
+#&Ok
+#####
+记录游戏
+请输入您的姓名
+&O确定
+
+#### PLAYBOX DIALOG :   ( 10 lines) ######
+#Playback Game
+#&Close
+#&Play
+#&Reset
+#&Fast
+#&Slow
+#S&tep
+#Step :
+#of
+#Speed
+#####
+播放关卡
+&C关闭
+&P播放
+&R重新开始
+&F快
+&S慢
+&T步进
+第:
+于
+播放速度
+
+#### PICKLEVEL DIALOG :   ( 6 lines) ######
+#Save LaserTank Level
+#&Ok
+#Enter the Level Number to
+#Save :
+#= Add
+#&Clear High Score
+######
+储存 LaserTank 关卡
+&O确定
+输入关卡编号
+储存 :
+= 增加
+&C清除高分记录
+
+##### ABOUTBOX MESSAGE : (14 lines Max, 300 bytes each max) ###
+     LaserTank 是 HelpWare， 您可以免费使用。\n\n
+     在您成为了一个熟练的玩家之后，您可能会想要制作一个或更多新关卡，您可使用关卡编辑器，然后将新关卡和您的关卡记录文件 (.LPB) 一起寄给我们。\n\n
+     我们在每次更新软体时，会加入所有收到的好关卡。您可参考线上帮助中有关 "编辑您自己的关卡"  和 "记录和播放关卡"  的说明。\n\n
+     (请设法创造新的，而不要重复现有的。)\n\n
+     (在 LaserTank 网站上有很多好玩的关卡。)\n\n
+     如果您达到任何新的高分记录，请先确定您的全球高分记录文件 (.GHS) 是最新的，然后将您达到新高分记录关卡的关卡记录文件和您的LaserTank.hs 文件包裹成一个压缩文件 (.zip) 寄给我们。\n\n
+     您可以 e-mail 您的文件到 : lasertank@globetrotter.net\n\n
+    您可以在 LaserTanks 网站找到更多关卡、图形文件，和最新的全球高分记录文件，网址 :\nhttp://www.jccontrols.net/laser  (英文网站)\n\n
+     要得到关于这个游戏软体的更多协助及资讯，您可以加入或查看雅虎的爱好者组织，网址 : \nhttp://groups.yahoo.com/lasertank  (英文网站)
+
+################ END ######################

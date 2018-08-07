@@ -1,0 +1,484 @@
+##### LTank32 Language File 4.0 ###########
+#                                         #
+# Language : Swedish  (100% Complete)     #
+# Author   : Charon Direnj                #
+# Date     : 8 July 2006                  #
+#                                         #
+###########################################
+
+##### IMPORTANT NOTE TO THE TRANSLATORS #################
+#                                                       #
+# You have to translate all the lines except those      #
+# beginning with a pound sign. ( # )                    #
+#                                                       #
+# No lines must be removed or added.                    #                  
+#                                                       #
+# All lines must stay at their original position.       #                  
+#                                                       #
+# In some cases changing the length of a message can    #
+# produce strange results. You will have to make tests. #
+#                                                       #
+#########################################################
+
+##### MAIN MENU ##########################
+00,--,--,&Spel
+00,00,--,&Nytt\tF2
+00,01,--,&Ladda bana...\tL
+00,02,--,&Nästa bana\tS
+00,03,--,&Föregående bana\tP
+00,04,--,Senaste &bana\tBkSp
+00,05,--,SEPARATOR
+00,06,--,Ladda &kompilation...\tO
+00,07,--,SEPARATOR
+00,08,--,Egna &rekord\tV
+00,09,--,&Globala rekord\tG
+00,10,--,SEPARATOR
+00,11,--,Spela &in\tF5
+00,12,--,&Spara inspelning\tF6
+00,13,--,&Återuppta inspelning...\tF8
+00,14,--,Spela &upp...\tF7
+00,15,--,SEPARATOR
+00,16,--,Skriv ut spel&plan...
+00,17,--,SEPARATOR
+00,18,--,&Avsluta\tAlt+F4
+01,--,--,&Drag
+01,00,--,&Börja om\tR
+01,01,--,&Ångra\tU
+01,02,--,Position i &minne\tCtrl+C
+01,03,--,Återställ &position\tCrtl+V
+01,04,--,Återge &alla drag\tF4
+02,--,--,&Alternativ
+02,00,--,&Animering\tA
+02,01,--,&Ljud\tN
+02,02,--,&Kom ihåg senaste bana
+02,03,--,&Hoppa över klarade banor
+02,04,--,Automatisk &inspelning
+02,05,--,&Varna inte
+02,06,--,SEPARATOR
+02,07,--,&Storlek
+02,07,00,&Liten
+02,07,01,&Mellan
+02,07,02,&Stor
+02,08,--,Svårighets&grad...\tD
+02,09,--,&Utseende...\tCtrl+G
+03,--,--,&Editor [F9]
+04,--,--,&Hjälp
+04,00,--,&Ledtråd\tH
+04,01,--,SEPARATOR
+04,02,--,LaserTank-&hjälp
+04,03,--,&Visa intro\tF1
+04,04,--,&Revisioner
+04,05,--,SEPARATOR
+04,06,--,&Om LaserTank
+
+##### EDITOR MENU ######################
+00,--,--,&Editor
+00,00,--,&Töm spelplan\tCtrl+C
+00,01,--,&Ladda bana...\tCtrl+L
+00,02,--,&Spara\tCtrl+S
+00,03,--,S&para som...
+00,04,--,&Avsluta\tAlt+F4
+01,--,--,&Ledtråd
+02,--,--,&Rotera vy
+02,00,--,&Höger\tCtrl+Pil höger
+02,01,--,&Vänster\t  ''     ''  vänster
+02,02,--,&Upp\t  ''     ''  upp
+02,03,--,&Ned\t  ''     ''  ned
+03,--,--,&Stäng editor [F9]
+04,--,--,Svårighets&grad
+04,00,--,&Barn
+04,01,--,&Lätt
+04,02,--,&Medel
+04,03,--,&Svår
+04,04,--,&Dödlig
+05,--,--,&Hjälp
+05,00,--,Editor&hjälp\tF1
+05,01,--,&Att Bygga Egna Banor
+05,02,--,SEPARATOR
+05,03,--,&Om LaserTank
+
+##### MAIN BUTONS  ( 9 lines) #########
+#Undo
+Ångra
+#Save Position
+Position i minne
+#Restore Position
+Återställ position
+#New
+Nytt
+#<< Level
+<< Föreg.
+#Level >>
+Nästa >>
+#Hint
+Ledtråd
+#Restart
+Börja om
+#Load Level
+Ladda bana
+
+##### MESSAGES  ( 44 lines ) ###########
+#The Level file can not be found\nPlease select a new one
+Kompilationen hittas ej\nVälj en annan
+#Level Files (*.LVL)
+Kompilation (*.lvl)
+#Pick LaserTank Level File
+Välj LaserTank-kompilation
+#Playback Files (*.LPB)
+Inspelning (*.lpb)
+#Save Playback File
+Spara inspelning
+#LaserTank Error
+LaserTank error
+#Old High Score > M:
+Gammalt rekord > St:
+#M: 
+St: 
+# S: 
+ Sk: 
+# I: 
+ I: 
+#Congratulation's You beat it !!
+Grattis, Du bräckte det !!
+#Playback Level : 
+Bana : 
+#\nRecorded by 
+\nInspelad av 
+#\nCan Not be found in the current level file\n< 
+\nHittas ej i denna kompilation\n< 
+#Do You want to Continue Recording ?
+Vill Du återuppta inspelningen ?
+#&Play
+&Utför
+#&Pause
+&Pausa
+#Out of Memory - Undo Roll Over
+Minnesbuffert tömd - börjar om
+#Open Playback file
+Öppna inspelning
+#LaserTank Hint
+LaserTank-ledtråd
+#Level NOT Saved, Save Data ?
+Banan har ändrats.\nVill Du spara ändringar ?
+# - Kids
+ - Barn
+# - Easy
+ - Lätt
+# - Medium
+ - Medel
+# - Hard
+ - Svår
+# - Deadly
+ - Dödlig
+# - [Editor]
+ - [Editor]
+#LaserTank Editor
+Editor i gång...
+#NOT a Valid LaserTank Graphics Set
+Ogiltig som LaserTank-grafik
+#game.bmp and/or mask.bmp Not Found
+game.bmp och/eller mask.bmp hittas ej
+#Open Playback file for Resume
+Öppna inspelning att återuppta
+#Return to Game
+Återgå till spelet
+#< NO HINT SUBMITTED FOR THIS LEVEL >
+< INGEN LEDTRÅD LÄMNAD FÖR DENNA BANA >
+#LaserTank Level #
+LaserTank-bana #
+#Select LaserTank Graphics Directory
+Välj mapp med LaserTank-grafik
+#Game in Progress ...
+Spel i gång...
+#You will lose game data.\nDo you want to save the game ?
+Du kommer förlora speldata.\nVill Du spara spelet ?
+#Beat
+Bräckta
+#All
+Alla
+#Completed %d of %d levels
+%d av %d banor klarade
+#Difficulty Set = 
+Svårighetsgrad = 
+#KEMHD  (means: Kids, Easy, Medium, Hard, Deadly)
+BLMSD
+#LaserTank Graphics file Not Found !
+LaserTank-grafikfil hittas ej !
+# LaserTank *** RECORDING ***
+LaserTank *** SPELAR IN ***
+
+
+##### HELP SECTIONS : ( 4 lines) ########
+#Editor Instructions
+#Revisions
+#Writing Your Own Levels
+#LaserTank.hlp
+#####
+Editorhjälp
+Revisioner
+Att Bygga Egna Banor
+Language\LaserTankSW.hlp
+
+
+##### ABOUTBOX DIALOG : ( 4 lines) ########
+#About LaserTank
+#&Ok
+#By Jim Kindley
+#Version
+#####
+Om LaserTank
+&OK
+av Jim Kindley
+Version
+
+##### DEADBOX DIALOG :  ( 3 lines) ########
+#&Undo Last Move
+#YOU ARE DEAD ! ! !
+#&ReStart
+#####
+Ångra sl&utdrag
+DU ÄR DÖD ! ! !
+Bö&rja om
+
+##### DIFFBOX DIALOG :  ( 9 lines) ########
+#Game Difficulty
+#&Ok
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#&All
+#Select
+#####
+Svårighetsgrad
+&OK
+&Barn
+&Lätt
+&Medel
+&Svår
+&Dödlig
+&Alla
+Välj
+
+##### GRAPHBOX DIALOG :  ( 9 lines) ######
+#Select Graphics Set
+#Select One
+#&Internal Graphics
+#&User Graphics 
+#&Close
+#Author :
+#LaserTank Graphic Set Description
+#&View Opening Screen 
+#Change &Directory
+#####
+Ändra utseende
+Välj
+&Intern grafik
+&Extern grafik
+&OK
+Auktor :
+Beskrivning :
+&Visa intro
+&Bläddra...
+
+##### LOADLEV DIALOG :  ( 7 lines) ######
+#Pick Level to Load
+#&Cancel
+#&Filter
+#File:
+#- File Loading Error -
+#Lev#   Name                           Author
+#or Direct Level Number Entry >>
+#####      
+Välj bana att ladda
+Av&bryt
+&Sök
+Kompil.:
+- Fel vid laddning av fil -
+Bana # Namn                           Auktor
+eller ange banans nummer :
+
+
+#### HINTBOX DIALOG :  ( 3 lines) ######
+#Modify Hint
+#&Ok
+#&Cancel
+#####
+Redigera ledtråd
+&OK
+&Avbryt
+
+#### SEARCH DIALOG :   ( 14 lines) ######
+#Filter Level Data
+#Enter Search String :
+#Search By
+#&Title
+#&Author
+#&Cancel
+#&Ok
+#&Only Unsolved Levels
+#&Filter by Difficulty
+#&Kids
+#&Easy
+#&Medium
+#&Hard
+#&Deadly
+#####
+Filtrera bandata
+Ange sökord :
+Sök namn på
+&Bana
+&Auktor
+Av&bryt
+&OK
+&Endast olösta banor
+Svårighets&grad
+&Barn
+&Lätt
+&Medel
+&Svår
+&Dödlig
+
+#### RETBOX DIALOG :   ( 1 line) ##########
+#&Return to Game
+#####
+&Återgå till spelet
+
+
+#### WINBOX DIALOG :   ( 4 lines) #########
+#&Ok
+#You Won ! ! !
+#File :
+#- Error -
+#####
+&OK
+Du vann ! ! !
+Kompil.:
+- Error -
+
+#### LOADTID DIALOG :   ( 3 lines) ########
+#Pick Tunnel ID #
+#&Ok
+#Enter the ID Number for this Tunnel
+#####
+Tunnel-ID
+&OK
+Ange ID-nummer för denna tunnel :
+
+
+
+#### HIGHBOX DIALOG :   ( 9 lines) ########
+#! New High Score !
+#&Ok
+#Level Number :
+#Level Name :
+#Moves :
+#Shots :
+#Initials :
+#Global HS :
+#- No Data -
+#####
+! Nytt rekord !
+&OK
+Bana # :
+Banans namn :
+Steg :
+Skott :
+Initialer :
+Globalt rekord :
+- Ingen data -
+
+#### HIGHLIST DIALOG :   ( 4 lines) #######
+#High Scores
+#&Ok
+#- File Loading Error -
+#Lev#  Name                          Moves  Shots  Initials
+#####
+Egna rekord
+&OK
+- Filen laddades ej -
+Bana # Namn                          Steg  Skott Initialer
+
+
+#### GHIGHLIST DIALOG :   ( 7 lines) #######
+#Global High Scores
+#&Ok
+#Lev#  Name                             M      S   Init   M     S  Init
+#Global
+#Local
+#- No Data -
+#&Beat
+#####
+Globala rekord
+&OK
+Bana # Namn                            St     Sk  Init   St    Sk  Init
+Globala
+Egna
+- Ingen data -
+&Bräckta
+
+#### RECBOX DIALOG :   ( 3 lines) #######
+#Recording Game
+#Please Enter Your Name
+#&Ok
+#####
+Spela in
+Ange Ditt namn :
+&OK
+
+#### PLAYBOX DIALOG :   ( 10 lines) ######
+#Playback Game
+#&Close
+#&Play
+#&Reset
+#&Fast
+#&Slow
+#S&tep
+#Step :
+#of
+#Speed
+#####
+Spela upp
+&Stäng
+&Utför
+&Börja om
+S&nabbt
+S&akta
+&Dragvis
+Drag :
+av
+Tempo :
+
+#### PICKLEVEL DIALOG :   ( 6 lines) ######
+#Save LaserTank Level
+#&Ok
+#Enter the Level Number to
+#Save :
+#= Add
+#&Clear High Score
+######
+Spara LaserTank-bana
+&OK
+Ange banans nummer 
+i kompil. :
+= Lägg till
+&Radera rekord
+
+
+##### ABOUTBOX MESSAGE : (14 lines Max, 300 bytes each max) ###
+     LaserTank är helpware och gratis för alla att använda.\n\n
+     När Du bemästrat spelet kanske Du vill bygga egna banor med den inkluderade Editorn? Se "Att Bygga Egna Banor" och "In- & Uppspelning" i hjälpfilen.\n\n
+     Maila sedan Dina banor till oss, tillsammans med inspelade lösningar.\n\n
+     Vi uppdaterar mjukvaran med jämna mellanrum, och lägger då in alla bra banor som sänts till oss.\n\n
+    (Lita till Din egen uppfinningsrikedom; Försök att inte upprepa vad andra gjort.)\n
+    (Varje bana måste ha minst 1 möjlig lösning, som därför bifogas inspelad.)\n\n
+     Om Du bräcker ett globalt rekord - förutsatt Du har den aktuella listan [*.ghs] - maila en zip:ad fil med inspelningen [*.lpb] samt listan över egna rekord [*.hs], så registreras Din bedrift i kommande uppdatering.\n\n
+     Du kan maila filerna till :\n
+        lasertank@globetrotter.net\n\n
+     För ytterligare kompilationer, grafik, senast uppdaterade globala rekord m.m., besök LaserTanks hemsida :\n
+        http://www.jccontrols.net/laser\n\n
+     För hjälp eller vidare information om LaserTank, besök eller gå med i Yahoogruppen :\n
+        http://groups.yahoo.com/group/Lasertank/\n\n
+     =========================\n              Svensk bearbetning :\n                   Charon Direnj\n     =========================\n
+################ END ######################
